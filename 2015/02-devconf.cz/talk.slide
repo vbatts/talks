@@ -1,0 +1,170 @@
+Golang - the good, the bad, the ugly
+06 Feb 2015 - devconf.cz
+
+Vincent Batts
+Developer
+@vbatts
+vbatts@redhat.com
+
+* howdy
+
+$> whoami
+vbatts
+$> id -Gn
+vbatts devel openshift docker
+
+* golang
+
+## Notes
+# - libraries - source only, but can link to C *.so and *.a
+# - Fork/Exec are coupled together (for coroutine and GC reasons)
+# - Threading, and multiproc, concurrent logic
+#  -- nice and easy to use
+#  -- Make for tricky handling of C calls (i.e. setns)
+# - `go get` is handy
+# - cross-compile without hardly any bootstrapping
+#  -- native compiler supported arches
+#  -- gccgo works for the arch gcc is compiled for
+# - primitives can seem a bit magical
+#  -- conditional returns
+#  -- for ... range
+#  -- iota
+# - no ifdefs, but build tags
+# - error handling, rather than exception catching
+
+* 
+
+.image ./gopher.png
+
+* Overview
+
+- strongly typed
+- compiled
+- stylistically nice
+- opinionated
+
+* Good
+
+* 
+
+.image ./rainbow.jpg
+
+* fully qualified imports
+
+.code ./talk/imports.go /START1/,/STOP1/
+
+* fast compiles
+
+(Perhaps other compilers are slow)
+
+.play ./talk/hello.go /START1/,/STOP1/
+
+* defer
+
+.code ./talk/good0.go /START1/,/STOP1/
+
+* Garbage Collected
+
+- Super convenient
+- references
+- completed goroutines
+
+* simple exports
+
+.code ./talk/good1.go /START1/,/STOP1/
+
+* concurrency
+
+.play ./talk/pingpong.go /STARTMAIN1/,/STOPMAIN1/
+.link http://talks.golang.org/2013/advconc.slide Sameer Ajmani - Advanced Concurrency
+
+* 
+.image ./kanye_imma_bookmarklet.png 320 _
+
+- easy learning curve
+- `go get`
+- cross-compiles
+
+
+* Bad
+
+* 
+
+# they come along, and affect how you do your work
+.image ./cats20.gif
+
+* lack of generics?
+# i don't feel strongly about this, though many do
+- interfaces - are enough for most
+- go1.4 introduced go:generate
+# produce code for Set, Graph etc, for the types needed, but at compile time. No need to reflect.
+
+* Debugging
+
+- gdb is there, sort of
+- some known debugging tools for ELF are not useful
+- fmt.Printf("%#v\n", ...)
+
+* Concurrency and GC
+
+Calls like setns(2) are rough
+
+
+(yes, even with runtime.LockOSThread())
+
+* Fork/Exec
+
+Not Separate, but together
+
+* Ugly? (maybe just new)
+
+* 
+.image ./revenge-of-the-nerds-o.gif
+
+* build tags
+
+.code ./talk/tags.go /START1/,/STOP1/
+
+or files with *_linux.go like suffix
+
+* _
+
+bit bucket
+
+* channels
+
+.play ./talk/ugly0.go /START1/,/STOP1/
+
+* iota
+
+.code ./talk/ugly1.go /START1/,/STOP1/
+
+* for range
+
+array (or string)
+
+.play ./talk/primitive1.go /START1/,/STOP1/
+
+* for range
+
+map
+
+.play ./talk/primitive2.go /START1/,/STOP1/
+
+* for range
+
+channel (like an iterator)
+
+.play ./talk/primitive3.go /START1/,/STOP1/
+
+* for range
+
+channel
+
+.code ./talk/primitive3.go /START2/,/STOP2/
+
+* Conclusions?
+
+* use-case
+
+- like all languages, align with you use-case
