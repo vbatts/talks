@@ -51,17 +51,17 @@ vbatts devel openshift docker
 
 * fully qualified imports
 
-.code ./talk/imports.go /START1/,/STOP1/
+.code ./imports.go /START1/,/STOP1/
 
 * fast compiles
 
 (Perhaps other compilers are slow)
 
-.play ./talk/hello.go /START1/,/STOP1/
+.play ./hello.go /START1/,/STOP1/
 
 * defer
 
-.code ./talk/good0.go /START1/,/STOP1/
+.code ./good0.go /START1/,/STOP1/
 
 * Garbage Collected
 
@@ -71,11 +71,11 @@ vbatts devel openshift docker
 
 * simple exports
 
-.code ./talk/good1.go /START1/,/STOP1/
+.code ./good1.go /START1/,/STOP1/
 
 * concurrency
 
-.play ./talk/pingpong.go /STARTMAIN1/,/STOPMAIN1/
+.play ./pingpong.go /STARTMAIN1/,/STOPMAIN1/
 .link http://talks.golang.org/2013/advconc.slide Sameer Ajmani - Advanced Concurrency
 
 * 
@@ -123,7 +123,7 @@ Not Separate, but together
 
 * build tags
 
-.code ./talk/tags.go /START1/,/STOP1/
+.code ./tags.go /START1/,/STOP1/
 
 or files with *_linux.go like suffix
 
@@ -133,38 +133,41 @@ bit bucket
 
 * channels
 
-.play ./talk/ugly0.go /START1/,/STOP1/
+.play ./ugly0.go /START1/,/STOP1/
 
 * iota
 
-.code ./talk/ugly1.go /START1/,/STOP1/
+.code ./ugly1.go /START1/,/STOP1/
 
 * for range
 
 array (or string)
 
-.play ./talk/primitive1.go /START1/,/STOP1/
+.play ./primitive1.go /START1/,/STOP1/
 
 * for range
 
 map
 
-.play ./talk/primitive2.go /START1/,/STOP1/
+.play ./primitive2.go /START1/,/STOP1/
 
 * for range
 
 channel (like an iterator)
 
-.play ./talk/primitive3.go /START1/,/STOP1/
+.play ./primitive3.go /START1/,/STOP1/
 
 * for range
 
 channel
 
-.code ./talk/primitive3.go /START2/,/STOP2/
+.code ./primitive3.go /START2/,/STOP2/
 
 * Conclusions?
 
 * use-case
 
 - like all languages, align with you use-case
+- get familiar enough to like and dislike it
+- don't be afraid to try it out
+
