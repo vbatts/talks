@@ -94,6 +94,10 @@ vbatts devel openshift docker
 # they come along, and affect how you do your work
 .image ./cats20.gif
 
+* Packaging
+
+Addresses different concern than distributions
+
 * lack of generics?
 # i don't feel strongly about this, though many do
 - interfaces - are enough for most
@@ -124,9 +128,14 @@ Not Separate, but together
 
 * build tags
 
+no #ifdef
+
 .code ./tags.go /START1/,/STOP1/
 
-or files with *_linux.go like suffix
+or files with *_linux.go like suffix.
+
+More like extern.
+
 
 * _
 
