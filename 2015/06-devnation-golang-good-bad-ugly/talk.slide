@@ -1,5 +1,5 @@
 Golang - the good, the bad, the ugly
-06 Feb 2015 - devconf.cz
+25 June 2015 - devnation.org
 
 Vincent Batts
 Developer
@@ -9,10 +9,13 @@ https://github.com/vbatts/talks
 
 * howdy
 
-$> whoami
-vbatts
-$> id -Gn
-vbatts devel openshift docker
+	$> finger $(whoami)
+	Login: vbatts                           Name: Vincent Batts
+	Such mail.
+	Plan:
+	Contribute with right, joyful effort
+	$> id -Gn
+	vbatts devel openshift docker
 
 * golang
 
