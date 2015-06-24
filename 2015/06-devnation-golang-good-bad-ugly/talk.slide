@@ -2,7 +2,7 @@ Golang - the good, the bad, the ugly
 25 June 2015 - devnation.org
 
 Vincent Batts
-Developer
+Engineer
 @vbatts
 vbatts@redhat.com
 https://github.com/vbatts/talks
@@ -13,7 +13,7 @@ https://github.com/vbatts/talks
 	Login: vbatts                           Name: Vincent Batts
 	Such mail.
 	Plan:
-	Contribute with right, joyful effort
+	OHMAN
 	$> id -Gn
 	vbatts devel openshift docker
 
@@ -82,13 +82,23 @@ https://github.com/vbatts/talks
 .play ./pingpong.go /STARTMAIN1/,/STOPMAIN1/
 .link http://talks.golang.org/2013/advconc.slide Sameer Ajmani - Advanced Concurrency
 
+* Marshalling
+
+.code ./marshal.go /START1/,/STOP1/
+.play ./marshal.go /START2/,/STOP2/
+
+* Marshalling
+
+.code ./marshal_xml.go /START1/,/STOP1/
+.play ./marshal_xml.go /START2/,/STOP2/
+
 * 
 .image ./kanye_imma_bookmarklet.png 320 _
 
 - easy learning curve
+- fast compiles
 - `go get`
 - cross-compiles
-
 
 * Bad
 
@@ -103,7 +113,7 @@ Addresses different concern than distributions
 
 * lack of generics?
 # i don't feel strongly about this, though many do
-- interfaces - are enough for most
+- interfaces - good enough for most
 - go1.4 introduced go:generate
 # produce code for Set, Graph etc, for the types needed, but at compile time. No need to reflect.
 
@@ -112,17 +122,21 @@ Addresses different concern than distributions
 - gdb is there, sort of
 - some known debugging tools for ELF are not useful
 - fmt.Printf("%#v\n", ...)
+- go1.5 has much focus on DWARF symbols
 
 * Concurrency and GC
 
-Calls like setns(2) are rough
-
-
+- Calls like setns(2) are rough
 (yes, even with runtime.LockOSThread())
+
+- go1.5 will greatly improve garbage collections
+(performance and pauses)
+
 
 * Fork/Exec
 
 Not Separate, but together
+
 
 * Ugly? (maybe just new)
 
@@ -139,6 +153,9 @@ or files with *_linux.go like suffix.
 
 More like extern.
 
+* pointer reciever
+
+.play ./ugly2.go /START1/,/STOP1/
 
 * _
 
@@ -176,11 +193,21 @@ channel
 
 .code ./primitive3.go /START2/,/STOP2/
 
+* interfaces and marshalling
+
+.code ./marshal_ugly.go /START1/,/STOP1/
+
+
 * Conclusions?
+
+* Conclusions?
+
+- easy to adopt
+- enjoyable to learn
 
 * use-case
 
-- like all languages, align with you use-case
 - get familiar enough to like and dislike it
+- like all languages, choose the one that aligns with your use-case
 - don't be afraid to try it out
 
