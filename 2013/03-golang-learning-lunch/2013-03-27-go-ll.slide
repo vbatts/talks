@@ -1,0 +1,350 @@
+Golang: an introduction
+
+27 Mar 2013
+
+# Go is a general-purpose language that bridges the gap between efficient
+# statically typed languages and productive dynamic language. But it’s not just
+# the language that makes Go special – Go has broad and consistent standard
+# libraries and powerful but simple tools.
+# 
+# This talk gives an introduction to Go
+
+# Please join Vincent Batts, Senior Software Application Engineer in the IT-Eng tower, for an overview of the Go programming language. 
+# 
+# Audience: Hackers, doodlers, early adopters, linguists 
+# Agenda: 
+#   * Overview of just what the language is and why should anyone care? 
+#   * What makes it better or worse than other options. 
+#   * Is it production ready?! 
+#   * Common go-idioms 
+#   * Other questions folks have relevant to Red Hat IT ?
+# 
+# Background:
+# The Go programming language is an open source project to make programmers more productive.
+# Go is expressive, concise, clean, and efficient. Its concurrency mechanisms make it easy to write programs that get the most out of multicore and networked machines, while its novel type system enables flexible and modular program construction. Go compiles quickly to machine code yet has the convenience of garbage collection and the power of run-time reflection. It's a fast, statically typed, compiled language that feels like a dynamically typed, interpreted language. 
+
+Vincent Batts
+Red Hat, Inc.
+@vbatts
+vbatts@redhat.com
+http://youtu.be/bIs15Km9v4k
+
+* Google Motivation
+- Efficiency
+- Safety
+- Concurrency
+- Scalabilty
+- Fast Dev Cycle
+- No Surprises
+- ... Such a cute mascot
+
+* gophers
+# SO DARN CUTE
+.image 2013-03-27-go-ll/gopher.jpg
+
+* Benefits
+- Spec driven 
+
+.link http://golang.org/ref/spec
+
+- Changes must have consenus
+# agreement of the different world views
+
+* Hello, go
+
+.play 1-hello/main.go
+
+* Layout Overview
+
+- packages (namespaces)
+# no need for central trust model
+# not terribly unlike python
+- remote packages include host/path
+# we'll touch back on this on the go tool
+- packages hold types, constants, variables, structs and func's
+- packages are grouped by directory (all *.go siblings are grouped)
+# we'll get back to testing
+- Capitalization determines visibility: `Foo` is exported, `foo` is not
+
+* Tooling
+
+* Compilers
+- gc - Google Go Compiler
+ - f19+ 'golang'
+ - EPEL soon... 
+# either from source or there is an RPM build
+#
+# COMPILES SO FAST
+#
+# 100k lines of code compiles in 2min
+# (the equivalent C++ took greater than 1hr)
+#
+- gccgo - GCC 4.7.1 and newer
+ - f16+
+# fedora 16+ and RHEL7
+
+* go tool
+the defacto all-the-things tool
+# wraps up testing, building, docs and libraries
+
+Compile a single-file program
+
+	$ go build hello.go
+
+Compile and run a single-file program
+
+	$ go run hello.go
+	
+List libraries available
+
+	$ go list all
+	
+See documentation
+
+	$ go doc io/ioutil
+
+* go tool
+
+Cleanup code
+
+	$ go fmt main.go
+	
+Test code
+
+	$ go test main_test.go
+	
+Check code for suspicious constructs or inconsistencies
+
+	$ go vet main.go
+	
+* go tool
+
+Compile out the current directory's *.go
+
+	$ cd my-project/
+	$ go build
+	$ ./my-project
+
+Test the current directory's *.go
+
+	$ cd my-project/
+	$ go test
+
+* Standard libraries
+# are freaking _solid_
+#
+# Very well documented
+# 
+# and easy to read
+
+* basic types
+
+.link http://golang.org/ref/spec#Types
+
+- Familiar C-types
+- But Strings too!
+# common and comfortable enough, without having to think of strings
+# as *char. We have []byte for that now
+- Slices - static and dynamic arrays
+
+* structs and pointers
+
+	type Person struct {
+		Name string
+		Dob *time.Time
+	}
+
+.play ./3-struct/main.go /START/,/STOP/
+
+* structs and pointers
+
+	func (p *Person) ComeToLife() {
+		t := time.Now()
+		p.Dob = &t
+		p.State = NEW_BORN
+	}
+
+.play ./4-struct-func/main.go /START/,/STOP/
+
+* Why should I care?
+# Perhaps you shouldn't care, if you ask this ... :-)
+
+Why Another Language?
+# Surprisingly, much of the concepts of Golang are _not_ "new"
+# concepts were taken from Ada, and heavily succeeds from plan9 and erlang
+# (ken thompson is one of the core developers)
+#
+# like so many businesses they have a need for business logic/ performance
+# but also the speed and ease of getting new features/apps deployed
+#
+# This often splits them over two languages. In google's situation, the need 
+# for a single language came from their heavy use of C and Python.
+#
+# Compile times! none of the ifdef garb,
+# and no shadiness of pre-proccessor, header and linker issues
+
+Benefits for me?
+# That's a big question that would involve a good deal of review
+#
+# reduced code. logic becomes visible
+
+Benefits for Red Hat IT?
+# Even tougher to say.
+# Definitely has benefits for portability, light-stack, speed and stability
+# No conversations should be considered, but also should not be ruled out 
+# for future projects.
+#
+# Ops/Infra burden. No stack, just land the binary.
+# Server needs no additional software, just a bare bones linux box
+# 
+# StatHat
+# ruby -> go services find 10x performance increase
+#
+# IronWorker
+# 30 ruby servers -> 2 go servers (just for redundancy)
+#
+
+* Is this production ready?!
+
+Great question!
+
+.link https://code.google.com/p/go-wiki/wiki/SuccessStories
+
+Google uses it
+- dl.google.com
+- part of Youtube
+
+.link https://code.google.com/p/vitess/ Youtube - vitess project
+
+
+* Idiomatic
+
+* Very
+- expressive
+- predictable
+- parsable (gofmt)
+- what-you-see-is-what-you-get
+# not a bunch of hidden inheritance
+# or prototyping
+# or code sprawl
+
+
+* Idioms
+
+- Multiple return values
+- Error checking (rather than exception handling)
+
+	fn := "/tmp/this-file.txt"
+	fh, err := os.Open(fn)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "ERROR: %s failed cause: %s!\n", fn, err)
+		// ... check for type of error, and do something
+	}
+	// ... life goes on
+
+
+* Idioms
+
+anonymous functions
+
+.link http://golang.org/doc/effective_go.html#goroutines go routines
+
+.play 12-go-func/main.go /START/,/STOP/ 
+
+
+* Idioms
+
+.link http://golang.org/doc/effective_go.html#defer Defer
+# closing a handle, unlocking a mutex, some stack of operations, etc.
+
+.play 11-defer/main.go /START/,/STOP/
+
+classic file handle situation... made simple
+
+	fh, err := os.Open("foo.txt")
+	if err != nil {
+		return "", err
+	}
+	defer fh.Close()
+	// forget about needing to close the file handle
+
+
+* Idioms
+
+Only what you need
+
+- import's
+# failed compile for including libraries that aren't used
+- variables
+
+.play 13-blank-var/main.go /START/,/STOP/
+
+
+* Idioms
+
+.link http://golang.org/doc/effective_go.html#channels Channels
+# nice closures
+
+	c := make(chan int)  // Allocate a channel.
+	// Start the sort in a goroutine; when it completes, signal on the channel.
+	go func() {
+		list.Sort()
+		c <- 1  // Send a signal; value does not matter.
+	}()
+	doSomethingForAWhile()
+	<-c   // Wait for sort to finish; discard sent value.
+
+
+* channels
+- using it for signal catching
+
+        go func() {
+                c := make(chan os.Signal, 1)
+                signal.Notify(c, os.Interrupt)
+                signal.Notify(c, os.Kill)
+                for sig := range c {
+                        // sig is a ^C, handle it
+                        if sig == os.Interrupt {
+                                log.Println("interrupted ...")
+                                os.Exit(1)
+                        } else if sig == os.Kill {
+                                log.Println("killing ...")
+                                os.Exit(2)
+                        } else {
+                                log.Printf("Not sure what %q is. Quiting", sig)
+                                os.Exit(3)
+                        }
+                }
+        }()
+
+
+* concurrency
+
+.play 14-ngoroutines/main.go /START/,/STOP/
+
+* Straight Forward
+
+.link http://localhost:4000/ Web Server
+
+.play ./9-http-srv/main.go /START/,/STOP/
+
+* Other Questions??
+
+
+* References
+
+.link http://golang.org/doc/
+
+.link http://golang.org/pkg/
+
+.link http://godoc.org/
+
+freenode #go-nuts
+
+.link http://groups.google.com/group/golang-nuts
+
+.link http://youtu.be/sln-gJaURzk Google I/O 2012 - Meet the Go Team
+
+.link http://www.miek.nl/projects/learninggo/ Learning Go book (free)
+
+
