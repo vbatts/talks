@@ -15,27 +15,28 @@ https://github.com/vbatts/talks
 	Plan:
 	right and joyful effort
 	$> id -Gn
-	vbatts devel redhat oci openshift slackware docker
+	devel redhat oci containers openshift slackware docker
 
+: Surview folks familiarity with golang. And with their primary language.
 
 * golang
 
-## Notes
-# - libraries - source only, but can link to C *.so and *.a
-# - Fork/Exec are coupled together (for coroutine and GC reasons)
-# - Threading, and multiproc, concurrent logic
-#  -- nice and easy to use
-#  -- Make for tricky handling of C calls (i.e. setns)
-# - `go get` is handy
-# - cross-compile without hardly any bootstrapping
-#  -- native compiler supported arches
-#  -- gccgo works for the arch gcc is compiled for
-# - primitives can seem a bit magical
-#  -- conditional returns
-#  -- for ... range
-#  -- iota
-# - no ifdefs, but build tags
-# - error handling, rather than exception catching
+:  Notes
+: - libraries - source only, but can link to C *.so and *.a
+: - Fork/Exec are coupled together (for coroutine and GC reasons)
+: - Threading, and multiproc, concurrent logic
+:  -- nice and easy to use
+:  -- Make for tricky handling of C calls (i.e. setns)
+: - `go get` is handy
+: - cross-compile without hardly any bootstrapping
+:  -- native compiler supported arches
+:  -- gccgo works for the arch gcc is compiled for
+: - primitives can seem a bit magical
+:  -- conditional returns
+:  -- for ... range
+:  -- iota
+: - no ifdefs, but build tags
+: - error handling, rather than exception catching
 
 
 * 
@@ -70,7 +71,7 @@ https://github.com/vbatts/talks
 
 * defer
 
-.code ./good0.go /START1/,/STOP1/
+.code -numbers ./good0.go /START1/,/STOP1/
 
 
 * Garbage Collected
@@ -96,33 +97,71 @@ https://github.com/vbatts/talks
 
 * concurrency
 
-.play ./pingpong.go /STARTMAIN1/,/STOPMAIN1/
+.play -numbers ./pingpong.go /STARTMAIN1/,/STOPMAIN1/
 .link http://talks.golang.org/2013/advconc.slide Sameer Ajmani - Advanced Concurrency
 
 
+* cross compiles
+
+: this could be demo'ed by scp'ing the binaries to fats.userys (aarch64) and piaba.usersys (arm v7)
+
+(staying away from CGO)
+
+.play ./hello.go /START1/,/STOP1/
+
+	$> go build ./main.go
+	$> file main
+	main: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, not stripped
+	$> GOOS=windows GOARCH=386 go build ./main.go
+	$> file main.exe
+	main.exe: PE32 executable (console) Intel 80386 (stripped to external PDB), for MS Windows
+	$> GOOS=openbsd GOARCH=arm go build ./main.go
+	$> file main
+	main: ELF 32-bit LSB executable, ARM, version 1 (OpenBSD), statically linked, for OpenBSD, not stripped
+	$> GOARCH=arm64 go build ./main.go
+	$> file main
+	main: ELF 64-bit LSB executable, ARM aarch64, version 1 (SYSV), statically linked, not stripped
+
+
+* helpers
+
+- `go get golang.org/x/tools/cmd/godoc`
+- `go get github.com/golang/lint/golint`
+- https://github.com/fatih/vim-go
+
+- `go vet ./...`
+- `go test ./...`
+- `golint -set_exit_status ./...`
+
+
 * 
-.image ./kanye_imma_bookmarklet.png 320 _
+.image ./kanye_imma_bookmarklet.png 250 _
+.caption _kanye_ by Kayne
 
 - easy learning curve
 - `go get`
-- cross-compiles
+- formatting wars are "over"
+- shared libraries
 
 
 * 
 
-# they come along, and affect how you do your work
+: they come along, and affect how you do your work
 .image ./cats20.gif
+.caption _halping_hooman_ by cat
 
 
 * Packaging
 
 Addresses different concern than distributions
 
+
 * lack of generics?
-# i don't feel strongly about this, though many do
+
+: i don't feel strongly about this, though many do
 - interfaces - are enough for most
 - go1.4 introduced go:generate
-# produce code for Set, Graph etc, for the types needed, but at compile time. No need to reflect.
+: produce code for Set, Graph etc, for the types needed, but at compile time. No need to reflect.
 
 
 * Debugging
@@ -130,6 +169,8 @@ Addresses different concern than distributions
 - gdb is there, sort of
 - some known debugging tools for ELF are not useful
 - fmt.Printf("%#v\n", ...)
+: show break on main.main and fmt.Println
+: continue, list, then step, then list, and then face melt
 
 
 * Concurrency and CGO
@@ -148,6 +189,7 @@ Not Separate, but together
 
 * 
 .image ./revenge-of-the-nerds-o.gif
+.caption _dancin'_ in ROTN
 
 
 * build tags
@@ -212,3 +254,9 @@ channel
 - like all languages, align with you use-case
 - get familiar enough to like and dislike it
 - don't be afraid to try it out
+
+
+* References
+
+.link https://golang.org/doc/ Go Documentation
+.link https://golang.org/doc/effective_go.html Effective Go
