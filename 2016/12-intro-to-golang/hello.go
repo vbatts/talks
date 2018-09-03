@@ -1,10 +1,1 @@
-// +build ignore
-
-// START1 OMIT
-package main
-
-func main() {
-	println("Howdy y'all")
-}
-
-// STOP1 OMIT
+../../2015/02-devconf.cz/hello.go

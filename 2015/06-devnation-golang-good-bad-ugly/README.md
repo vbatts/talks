@@ -1,6 +1,1 @@
-Usage
-====
-
-	go get golang.org/x/tools/cmd/present
-	present .
-
+../02-devconf.cz/README.md
