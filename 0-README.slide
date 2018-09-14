@@ -1,0 +1,18 @@
+README
+
+
+
+Vincent Batts
+@vbatts
+vbatts@hashbangbash.com
+
+* Overview
+ - This is a presentation tool from the golang team.
+ - Slide deck is a single flate file (*.slide)
+.link https://godoc.org/golang.org/x/tools/present Present
+
+
+* Slides
+
+.link https://github.com/vbatts/talks vbatts' talks
+

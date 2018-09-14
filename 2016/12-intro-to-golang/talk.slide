@@ -1,0 +1,262 @@
+Intro to Golang
+05 December 2016
+
+Vincent Batts
+Developer
+@vbatts
+vbatts@redhat.com
+https://github.com/vbatts/talks
+
+* howdy
+
+	$> finger $(whoami)
+	Login: vbatts                           Name: Vincent Batts
+	Such mail.
+	Plan:
+	right and joyful effort
+	$> id -Gn
+	devel redhat oci containers openshift slackware docker
+
+: Surview folks familiarity with golang. And with their primary language.
+
+* golang
+
+:  Notes
+: - libraries - source only, but can link to C *.so and *.a
+: - Fork/Exec are coupled together (for coroutine and GC reasons)
+: - Threading, and multiproc, concurrent logic
+:  -- nice and easy to use
+:  -- Make for tricky handling of C calls (i.e. setns)
+: - `go get` is handy
+: - cross-compile without hardly any bootstrapping
+:  -- native compiler supported arches
+:  -- gccgo works for the arch gcc is compiled for
+: - primitives can seem a bit magical
+:  -- conditional returns
+:  -- for ... range
+:  -- iota
+: - no ifdefs, but build tags
+: - error handling, rather than exception catching
+
+
+* 
+
+.image ./gopher.png
+
+
+* Overview
+
+- strongly typed
+- compiled
+- stylistically nice
+- opinionated/idiomatic
+
+
+* 
+
+.image ./rainbow.jpg
+
+
+* fully qualified imports
+
+.code ./imports.go /START1/,/STOP1/
+
+
+* fast compiles
+
+(Perhaps other compilers are slow)
+
+.play ./hello.go /START1/,/STOP1/
+
+
+* defer
+
+.code -numbers ./good0.go /START1/,/STOP1/
+
+
+* Garbage Collected
+
+- Super convenient
+- references
+- completed goroutines
+
+
+* Garbage Collected
+
+.link https://twitter.com/brianhatfield/status/634166123605331968 Brian Hatfield GC improvements
+
+- go1.4 (300ms) -> go1.5 (~30ms)
+- go1.6.0 (25ms) -> go1.6.3 (5ms)
+- go1.7.3 (3ms) -> go1.8beta1 (sub ms on 18Gb heap)
+
+
+* simple exports
+
+.code ./good1.go /START1/,/STOP1/
+
+
+* concurrency
+
+.play -numbers ./pingpong.go /STARTMAIN1/,/STOPMAIN1/
+.link http://talks.golang.org/2013/advconc.slide Sameer Ajmani - Advanced Concurrency
+
+
+* cross compiles
+
+: this could be demo'ed by scp'ing the binaries to fats.userys (aarch64) and piaba.usersys (arm v7)
+
+(staying away from CGO)
+
+.play ./hello.go /START1/,/STOP1/
+
+	$> go build ./main.go
+	$> file main
+	main: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, not stripped
+	$> GOOS=windows GOARCH=386 go build ./main.go
+	$> file main.exe
+	main.exe: PE32 executable (console) Intel 80386 (stripped to external PDB), for MS Windows
+	$> GOOS=openbsd GOARCH=arm go build ./main.go
+	$> file main
+	main: ELF 32-bit LSB executable, ARM, version 1 (OpenBSD), statically linked, for OpenBSD, not stripped
+	$> GOARCH=arm64 go build ./main.go
+	$> file main
+	main: ELF 64-bit LSB executable, ARM aarch64, version 1 (SYSV), statically linked, not stripped
+
+
+* helpers
+
+- `go get golang.org/x/tools/cmd/godoc`
+- `go get github.com/golang/lint/golint`
+- https://github.com/fatih/vim-go
+
+- `go vet ./...`
+- `go test ./...`
+- `golint -set_exit_status ./...`
+
+
+* 
+.image ./kanye_imma_bookmarklet.png 250 _
+.caption _kanye_ by Kayne
+
+- easy learning curve
+- `go get`
+- formatting wars are "over"
+- shared libraries
+
+
+* 
+
+: they come along, and affect how you do your work
+.image ./cats20.gif
+.caption _halping_hooman_ by cat
+
+
+* Packaging
+
+Addresses different concern than distributions
+
+
+* lack of generics?
+
+: i don't feel strongly about this, though many do
+- interfaces - are enough for most
+- go1.4 introduced go:generate
+: produce code for Set, Graph etc, for the types needed, but at compile time. No need to reflect.
+
+
+* Debugging
+
+- gdb is there, sort of
+- some known debugging tools for ELF are not useful
+- fmt.Printf("%#v\n", ...)
+: show break on main.main and fmt.Println
+: continue, list, then step, then list, and then face melt
+
+
+* Concurrency and CGO
+
+Calls like setns(2) are rough
+
+(yes, even with runtime.LockOSThread())
+
+Embedding other languages (like ruby and python that have their green threading)
+
+
+* Fork/Exec
+
+Not Separate, but together
+
+
+* 
+.image ./revenge-of-the-nerds-o.gif
+.caption _dancin'_ in ROTN
+
+
+* build tags
+
+no #ifdef
+
+.code ./tags.go /START1/,/STOP1/
+
+or files with *_linux.go like suffix.
+
+More like extern.
+
+
+* _
+
+bit bucket
+
+
+* channels
+
+.play ./ugly0.go /START1/,/STOP1/
+
+
+* iota
+
+.code ./ugly1.go /START1/,/STOP1/
+
+
+* for range
+
+array (or string)
+
+.play ./primitive1.go /START1/,/STOP1/
+
+
+* for range
+
+map
+
+.play ./primitive2.go /START1/,/STOP1/
+
+
+* for range
+
+channel (like an iterator)
+
+.play ./primitive3.go /START1/,/STOP1/
+
+
+* for range
+
+channel
+
+.code ./primitive3.go /START2/,/STOP2/
+
+
+* Conclusions?
+
+
+* use-case
+
+- like all languages, align with you use-case
+- get familiar enough to like and dislike it
+- don't be afraid to try it out
+
+
+* References
+
+.link https://golang.org/doc/ Go Documentation
+.link https://golang.org/doc/effective_go.html Effective Go
