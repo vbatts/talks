@@ -1,0 +1,135 @@
+What's new in the World of Golang?
+26.2.2018 - devconf.cz
+
+Vincent Batts
+Developer
+@vbatts
+vbatts@redhat.com
+https://github.com/vbatts/talks
+
+* howdy
+
+  $> whoami
+  vbatts
+  $> id -Gn
+  vbatts devel openshift docker golang slackware ruby farts etc
+
+* Golang
+
+.image 74f836db7e03776d5592cfd0943480ec12fc6b68.png _ 300
+.caption [[https://gopherize.me/gopher/74f836db7e03776d5592cfd0943480ec12fc6b68][gopherize.me]]
+
+* Overview
+
+- strongly typed
+- compiled
+- stylistically nice
+- opinionated
+
+* Release Timeles
+
+6 month cadence
+
+- Go1.5 - 19.8.2015
+- Go1.6 - 17.2.2016
+- Go1.7 - 15.8.2016
+- Go1.8 - 16.2.2017
+- Go1.9 - 24.8.2017
+- Upcoming 1.10 release [[https://github.com/golang/go/compare/go1.9...go1.10rc1][go1.9...go1.10rc1]] 2066 commits
+
+* Best release ever
+
+.image best_release.png _ 400
+.caption [[https://twitter.com/search?f=tweets&vertical=default&q=best%20release%20from%3Abradfitz&src=typd][twitter.com]]
+
+* New Features
+
+since my 2015 devconf.cz "Golang: the Good, the Bad, and the Ugly"
+
+* New Features
+
+- Full compiler rewrite from C to golang (go1.5)
+- No cross-compile bootstrapping needed (go1.5)
+- Shared library support (C->go; go->go; go->C) (go1.5)
+- HTTP/2 support (go1.6)
+- “Vendor” directory feature now default (go1.6)
+- Static-single assignment (SSA) compiler backend (go1.7)
+- Reduction in binary size by 20-30% (go1.7)
+
+* New Features
+
+- `context` package now included (go1.8)
+- Dynamically loadable “plugins” (go1.8)
+- Testing helpers, safe sync.Map and monotonic time (go1.9)
+- Sparse files for `archive/tar` (g1.10)
+
+* Less than Ideal
+
+- package management
+
+vendoring is a beast
+
+[[https://github.com/golang/dep][github.com/golang/dep]]
+
+- RPMs
+
+[[https://github.com/gofed/gofed][github.com/gofed/gofed]]
+
+- Package guidelines ...
+
+[[https://fedoraproject.org/wiki/PackagingDrafts/Go][Fedora Go Packaging Draft]]
+[[https://fedorahosted.org/fpc/ticket/382][FPC #382]]
+
+* Less than Ideal
+
+- Debugging still is archaic (but hopeful!)
+
+Call to action for DWARF and elf folks to contribute. Gdb
+
+- FIPS isn’t there yet
+
+* Reasons it’s nice
+
+- FIPS is in progress!
+
+Upstream has a branch working with boringSSL
+We are now working to incorporate and participate in this effort
+
+- Debugger traction
+
+[[https://github.com/derekparker/delve][github.com/derekparker/delve]]
+
+We have understanding with and interest from upstream, but they are not motivated for gdb features
+
+* Reasons it’s nice
+
+- Learning and ownership of code is easier
+- Multi-arch and gcc-go (which is go1.8.1 as of gcc-7.2)
+
+Cross-Compiles are nice (apart from cgo understandably)
+
+- Community is diverse and vigilant
+
+And growing [[https://trends.google.com/trends/explore?date=all&q=golang&hl=en-US]]
+[[https://octoverse.github.com/]]
+
+- Opportunity to talk and learn
+
+[[https://gophercon.com/][GopherCon]]
+[[https://gophercon.is/][GopherCon.is]]
+[[https://gophercon.sg/][GopherCon.sg]]
+[[http://gothamgo.com/][GothamGo]]
+
+
+* Where's Red Hat?
+
+- Having an increased presence
+
+Still need to have our name present at confs
+Need more speakers
+But as far as active code development, presence and respect, we are formidable
+
+- Products are written in it e.g. OpenShift.
+
+Openstack teams are working on tooling in golang
+

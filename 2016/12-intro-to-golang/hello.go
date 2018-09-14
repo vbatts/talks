@@ -1,0 +1,1 @@
+../../2015/02-devconf.cz/hello.go
