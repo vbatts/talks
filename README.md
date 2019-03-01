@@ -55,15 +55,22 @@ _This list will get stale from time to time_ ;-)
 - 2017
   * 2017-01 DevConf.cz - Container Standards on the Horizon
   * 2017-02 Container World - OCI Panel
+  * 2017-03 State of Container Ecosystem
+  * 2017-04 Containers, Computing, and Change
   * 2017-05 OSCON - Where have containers gotten us? (https://conferences.oreilly.com/oscon/oscon-tx/public/schedule/detail/60754)
   * 2017-05 OSCON - OCI: Openness Standardizes Better (https://conferences.oreilly.com/oscon/oscon-tx/public/schedule/detail/60795)
   * 2017-09 OpenSourceSummit L.A. - OCI Panel: What's Next? (https://ossna2017.sched.com/event/BDpz/panel-discussion-open-container-initiative-whats-next-for-standards-and-container-portability-moderated-by-chris-aniszczyk-oci)
+  * 2017-09 Containing Security
   * 2017 Interview w/ NewStack - https://player.fm/series/the-new-stack-scale/show-12-has-the-go-language-become-cloud-native
   * 2017 Interview w/ NewStack - https://soundcloud.com/thenewstackmakers/vincent-batts-interview
   * 2017-11 DockerCon Barcelona - What is it we want in Containers Anyways? (https://rhelblog.redhat.com/2015/11/11/must-see-vincent-batts-next-week-at-dockercon-europe/#more-1314)
+  * 2017-11 Intel internal workshop - Containing the OS. What's left?
 - 2018
+  * 2018-01 DevConf.cz - Emojisum lightening talk
   * 2018-01 DevConf.cz - What's New in Golang? (https://www.youtube.com/watch?v=mmljYnZl8X4)
-  * 2018-09 all-systems-go.io - Container RUntimes: Draw Some Lines (https://media.ccc.de/v/ASG2018-186-container_runtimes_draw_some_lines) (https://youtu.be/0JO40VDE9CQ)
   * 2018 Red Hat Summit - Provenance and Deployment Policy (https://next.redhat.com/2018/05/03/introducing-the-red-hat-summit-office-of-the-cto-sessions/)
+  * 2018-09 all-systems-go.io - Container RUntimes: Draw Some Lines (https://media.ccc.de/v/ASG2018-186-container_runtimes_draw_some_lines) (https://youtu.be/0JO40VDE9CQ)
   * 2018-09 all-systems-go.io - passive filesystem validationg 
+  * 2018-10 Edinburgh Container MeetUp - Container Runtimes: Draw Some Lines
+  * 2018-10 OpenSourceSummit Edinburgh - Improve the Human Vector with Emoji
 
