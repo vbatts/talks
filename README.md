@@ -14,7 +14,7 @@ _This list will get stale from time to time_ ;-)
 - 2010
   * SELF - Slackware Demystified (https://www.youtube.com/watch?v=Ze9oHzrrnJk)
 - 2011
-  * 2011-04 Camp KDE - Interview (https://www.youtube.com/watch?v=YIpUmPul1i4)
+  * 2011-04 **Camp KDE** - _Interview_ (https://www.youtube.com/watch?v=YIpUmPul1i4)
   * 2011-04-10 Camp KDE - Slackware: Quickly and Easily Manage Your KDE Hacking (https://www.youtube.com/watch?v=Qs7vR3POHeo)
 - 2012
 - 2013
