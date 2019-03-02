@@ -199,6 +199,6 @@ _This is not a comprehensive list, and I will update it periodically.  It is a c
 
 #### October
 
-  * __Edinburgh Container MeetUp__ - Container Runtimes: Draw Some Lines
+* __Edinburgh Container MeetUp__ - Container Runtimes: Draw Some Lines
 
-  * __OpenSourceSummit Edinburgh__ - Improve the Human Vector with Emoji
+* __OpenSourceSummit Edinburgh__ - Improve the Human Vector with Emoji
