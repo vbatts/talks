@@ -1,22 +1,20 @@
 # ___vbatts' talks, mentions, and interviews___
 
 
-This is a totally formatted list (hopefully), and is an incomplete collection.  But we're working on it!
+This is a formatted list, and is an incomplete collection.  But we're working on it!
 Best effort, ya know.
 
 ---
 
 ## __Playlist__
 
-_This is a playlist of all the videos I could find myself in online.  It varies from mentions in fun little videos to talks I've given._
+_This is a playlist of all the videos I could find of myself online. Most are of my talks, but a few are interviews._
 
 * [YouTube Playlist](https://www.youtube.com/playlist?list=PLK-mN-_ZR6SEI2gRX3J-7mmpVYR84XS5J)
 
 ---
 
 ## __Interviews__
-
-_These are the interviews that I've been in._
 
 * April, 2011- __Camp KDE__ - (https://www.youtube.com/watch?v=YIpUmPul1i4)
 
@@ -26,9 +24,9 @@ _These are the interviews that I've been in._
 
 ---
 
-## __Talks through the Years Compilation__
+## __Talks__
 
-_This list will get stale from time to time ;-) It is a compilation of all of the conferences, camps, and workshops that I have given talks in and led, and been involved in.  It exemplifies many places of leadership I've had through out the years, and my involvement in the software and opensource communities._ 
+_This is not a comprehensive list, and I will update it periodically.  It is a compilation of most of the conferences, camps, and workshops in which I have given talks and/or led._ 
 
 ### 2010
 
@@ -139,7 +137,7 @@ _This list will get stale from time to time ;-) It is a compilation of all of th
   #### September
 
 * Let's Make Containers Boring
-* Systemd.conf - Whats Next for Containers? (https://www.youtube.com/watch?v=F1wpyEsfejQ)
+* __Systemd.conf__ - Whats Next for Containers? (https://www.youtube.com/watch?v=F1wpyEsfejQ)
 
 #### October 
 
@@ -204,5 +202,3 @@ _This list will get stale from time to time ;-) It is a compilation of all of th
   * __Edinburgh Container MeetUp__ - Container Runtimes: Draw Some Lines
 
   * __OpenSourceSummit Edinburgh__ - Improve the Human Vector with Emoji
-
-
