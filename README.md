@@ -143,9 +143,9 @@ _This is not a comprehensive list, and I will update it periodically.  It is a c
 
   * __ContainerCon EU__ - Common Container Standards: Past, Present, and Future
 
-  * __ContainerCon EU__ - Reproduce and Verify Filesystems
+* __ContainerCon EU__ - Reproduce and Verify Filesystems
 
-  * __ContainerCon Berlin__ - OCI F2F (https://groups.google.com/a/opencontainers.org/d/msg/dev/BHYX5lv5h3E/xPe66sahBgAJ)
+* __ContainerCon Berlin__ - OCI F2F (https://groups.google.com/a/opencontainers.org/d/msg/dev/BHYX5lv5h3E/xPe66sahBgAJ)
 
 #### December
 
@@ -156,7 +156,7 @@ _This is not a comprehensive list, and I will update it periodically.  It is a c
 #### January
 
 * __DevConf CZ__ - Container Standards on the Horizon
-  * __Container World__ - OCI Panel
+* __Container World__ - OCI Panel
 
 #### March
 
