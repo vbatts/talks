@@ -1,7 +1,6 @@
 # ___vbatts' talks, mentions, and interviews___
 
-This is a formatted list, and is an incomplete collection.  But we're working on it!
-Best effort, ya know.
+This list is an incomplete collection.
 
 ---
 
