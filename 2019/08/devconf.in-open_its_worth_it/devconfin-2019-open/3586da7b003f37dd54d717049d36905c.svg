@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<svg preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+   
+  <g id="bcoi" style="fill-opacity:.1">
+    <path d="M 0,0 128,128 H 0 Z"></path>
+    <path d="M 0,0 H 128 L 0,128 Z"></path>
+  </g>
+  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bcoi" x="-20px"></use>
+  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bcoi" x="-40px"></use>
+  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bcoi" x="-60px"></use>
+  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bcoi" x="-80px"></use>
+  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bcoi" x="-100px"></use>
+
+</svg>
