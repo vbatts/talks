@@ -1,0 +1,2132 @@
+<!DOCTYPE html>
+	<html class="sl-root decks export offline loaded">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Future of containers</title>
+
+		<meta name="description" content="For Dallas mini-summit, 2019-12-05">
+
+		<link rel="stylesheet" type="text/css" href="lib/offline-v2.css">
+
+		<!-- Team CSS -->
+		<style id="global-css-output" type="text/css">
+			@import url("https://s3.amazonaws.com/static.slid.es/fonts/overpass2/overpass2.css");
+.reveal {
+  
+  /*fix icon inversion*/
+}
+.reveal svg,
+.reveal text,
+.reveal tspan,
+.reveal svg text {
+  font-family: "Overpass 2", Overpass, sans-serif !important;
+  color: currentcolor;
+  fill: currentcolor;
+}
+.reveal .sl-block {
+  color: #354045;
+  fill: currentcolor;
+}
+.reveal .sl-block svg {
+  color: currentcolor;
+}
+.reveal .has-dark-background,
+.reveal .has-dark-background > .sl-block {
+  color: white;
+  fill: currentcolor;
+}
+.reveal .has-dark-background > .sl-block .sl-block {
+  color: white;
+  fill: currentcolor;
+}
+.reveal section > .sl-block .redhat-logo .logotext {
+  fill: black;
+}
+.reveal .has-dark-background > .sl-block .redhat-logo .logotext {
+  fill: white;
+}
+.reveal .has-dark-background > .sl-block[data-block-type="image"] {
+  color: white;
+}
+.reveal [fill="none"] {
+  fill: none !important;
+}
+.reveal [fill="#a30000"] {
+  fill: #a00 !important;
+}
+.reveal [fill="#cc2029"],
+.reveal [fill="#cb2027"],
+.reveal [fill="#c00"] {
+  fill: #c00 !important;
+}
+.reveal [fill="#fff"] {
+  fill: #fff !important;
+}
+.reveal [fill="#6d6e70"] {
+  fill: #6d6e70 !important;
+}
+.reveal [fill="#231f20"] {
+  fill: currentcolor !important;
+}
+.reveal [fill="#efab1f"] {
+  fill: #efab1f !important;
+}
+.reveal [fill="#92d400"] {
+  fill: #92d400 !important;
+}
+.reveal .has-dark-background [fill="#6d6e70"] {
+  fill: #266272 !important;
+}
+.reveal .has-dark-background [fill="#fff"] {
+  fill: #555 !important;
+}
+.reveal .has-dark-background [fill="#fff"] {
+  fill: #333 !important;
+}
+.reveal .has-dark-background [stroke="#231f20"] {
+  stroke: currentcolor;
+}
+.reveal [data-inline-svg="true"] img {
+  display: none;
+}
+
+		</style>
+
+		<!-- Theme CSS -->
+		<style id="theme-css-output" type="text/css">
+			@import url(//overpassmonotest-30e2.kxcdn.com/overpass-mono.css);
+.reveal {
+  
+  /*
+.sl-block[data-block-type="snippet"],
+.sl-block[data-block-type="image"] 
+{
+text,
+tspan,
+polygon,
+path,
+rect,
+ellipse {
+  fill: currentcolor;
+}
+}
+*/
+  /*slide-default*/
+  /*Custom Ordered Lists */
+  /*helpers*/
+  /*fixing left aligned text*/
+  /*h1,h2,h3,h4,h5,h6{&::first-letter{margin-left:-.09em;}}*/
+  /*icon absolute brute-fix*/
+  /*
+.present .icon.stroked path.long{ stroke-width: 2px ;
+-webkit-animation: icon-animation-long 3.5s 1.5s 1;
+-moz-animation:    icon-animation-long 3.5s 1.5s 1;
+animation:         icon-animation-long 3.5s 1.5s 1;
+}*/
+  /*
+.present .icon.stroked path.short{
+-webkit-animation: icon-animation-short 3.5s 1.5s 1;
+-moz-animation:    icon-animation-short 3.5s 1.5s 1;
+animation:         icon-animation-short 3.5s 1.5s 1;
+}*/
+  /*controls logic*/
+  /*animated logos with complex svg segments*/
+  /*transitions*/
+  /*logos svg files that contain inverted path alternates */
+  /* call to action */
+  /* tables in snippets.... the devil */
+  /* tables in text */
+  /*testimonial snippet */
+  /*for inverting images*/
+  /**/
+  /*code blocks*/
+  /* round line arrows */
+  /*fix icon inversion*/
+  /*body:hover .corner svg{transform: translate(30%, 30%)}*/
+}
+.reveal.reveal[role="application"] > .backgrounds > .slide-background:not(.stack):first-child,
+.reveal.reveal[role="application"] > .backgrounds > .stack:first-child > .slide-background:first-child,
+.reveal.reveal[role="application"] .slides > .pdf-page:not(.stack):first-child .slide-background,
+.reveal.reveal[role="application"] .slides > .stack:first-child > .pdf-page:first-child .slide-background {
+  background-color: #900;
+  color: #fff;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-image: linear-gradient(-45deg, #8e0000 20%, #820000 20%, #990000 85%, #890000 85%);
+  min-height: 100vh;
+}
+.reveal.reveal[role="application"] > .backgrounds > .slide-background:not(.stack):first-child.has-light-background,
+.reveal.reveal[role="application"] > .backgrounds > .stack:first-child > .slide-background:first-child.has-light-background,
+.reveal.reveal[role="application"] .slides > .pdf-page:not(.stack):first-child .slide-background.has-light-background,
+.reveal.reveal[role="application"] .slides > .stack:first-child > .pdf-page:first-child .slide-background.has-light-background {
+  background-image: none;
+}
+.reveal.reveal .slides > .section:first-child,
+.reveal.reveal[role="application"] > .slides > .section:first-child .sl-block {
+  color: #fff;
+}
+.reveal .name {
+  white-space: nowrap;
+}
+.reveal .reveal,
+.reveal .sl-block,
+.reveal .sl-block-content,
+.reveal .sl-block-content div,
+.reveal .sl-block-content p,
+.reveal .sl-block-content h1,
+.reveal .sl-block-content h2,
+.reveal .sl-block-content h3,
+.reveal .sl-block-content h4 {
+  font-family: "Overpass 2", overpass, "Hiragino Kaku Gothic", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ Pro W3", sans-serif;
+}
+.reveal .future .sl-block-content,
+.reveal .past .sl-block-content {
+  transition: none !important;
+}
+.reveal section,
+.reveal.reveal .has-dark-background,
+.reveal section.background-shade-dark {
+  color: #fff;
+}
+.reveal.reveal .has-dark-background a {
+  color: #eee;
+}
+.reveal.reveal .has-dark-background a:hover {
+  color: #fff;
+}
+.reveal .backgrounds {
+  background: #f3f4f4;
+}
+.reveal .slide-background {
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+.reveal .slide-background.has-light-background {
+  /*background-image: url(//s3.amazonaws.com/media-p.slid.es/uploads/team-32/images/1297460/standard-background.svg);*/
+}
+.reveal .backgrounds .paint-it-red {
+  background-color: #c00 !important;
+  -moz-background-blend-mode: multiply;
+  -webkit-background-blend-mode: multiply;
+  -ms-background-blend-mode: multiply;
+  background-blend-mode: multiply;
+}
+.reveal .paint-it-red {
+  color: #fff;
+}
+.reveal .has-dark-background .icon.stroked path,
+.reveal section.background-shade-dark .icon.stroked path,
+.reveal section.light-foreground .icon.stroked path {
+  stroke: #fff !important;
+}
+.reveal .has-dark-background .redhat-product-logotype path,
+.reveal section.background-shade-dark .redhat-product-logotype path,
+.reveal section.light-foreground .redhat-product-logotype path {
+  fill: #ffffff;
+}
+.reveal .has-dark-background text.logotext,
+.reveal section.background-shade-dark text.logotext,
+.reveal section.light-foreground text.logotext,
+.reveal .has-dark-background .logotext text,
+.reveal section.background-shade-dark .logotext text,
+.reveal section.light-foreground .logotext text,
+.reveal .has-dark-background path.logotext,
+.reveal section.background-shade-dark path.logotext,
+.reveal section.light-foreground path.logotext,
+.reveal .has-dark-background path.logotype,
+.reveal section.background-shade-dark path.logotype,
+.reveal section.light-foreground path.logotype,
+.reveal .has-dark-background .logotext path,
+.reveal section.background-shade-dark .logotext path,
+.reveal section.light-foreground .logotext path {
+  fill: #fff !important;
+}
+.reveal .has-dark-background .closing-logo .logotext,
+.reveal section.background-shade-dark .closing-logo .logotext,
+.reveal section.light-foreground .closing-logo .logotext,
+.reveal .has-dark-background .redhat-logo .logotext,
+.reveal section.background-shade-dark .redhat-logo .logotext,
+.reveal section.light-foreground .redhat-logo .logotext {
+  fill: #ffffff !important;
+}
+.reveal .has-light-background .icon.stroked path {
+  stroke: currentcolor;
+}
+.reveal .has-light-background .redhat-logo .logotext,
+.reveal .has-light-background .redhat-logo .logohat {
+  fill: #000000 !important;
+}
+.reveal .sl-block-content ol li {
+  position: relative;
+  padding-bottom: 0.5em;
+}
+.reveal .sl-block-content ol li > p:first-child {
+  margin: 0;
+}
+.reveal .sl-block-content ol > li::before {
+  margin-left: -2.5em;
+}
+.reveal .sl-block-content > ol > li:before {
+  float: left;
+  text-align: center;
+  box-shadow: inset 0 0 0 0.1em;
+  border-radius: 50%;
+}
+.reveal .sl-block-content ol {
+  counter-reset: section;
+  list-style-type: none;
+  margin: 0 0 0 2.5em;
+  display: block;
+}
+.reveal .sl-block-content ol ol {
+  margin-top: 0.5em;
+}
+.reveal .sl-block-content ol > li:before {
+  font-weight: 400;
+  display: inline-block;
+  width: 1.75em;
+  height: 1.75em;
+  line-height: 1.75em;
+  text-align: center;
+  letter-spacing: 0;
+  font-size: 0.75em;
+  margin: 0 0.75em 0 -2.5em;
+  counter-increment: section;
+  content: counters(section, ".") " ";
+  white-space: nowrap;
+}
+.reveal .sl-block-content > ol > li ol li:before {
+  opacity: 0.5;
+  text-align: left;
+  box-shadow: none;
+  letter-spacing: 0.1em;
+}
+.reveal .sl-block-content > ol > li > ol > li > ol > li:before {
+  width: 4em;
+  left: -3em;
+  font-size: 0.75em;
+}
+.reveal .has-dark-background .sl-block-content > ol > li:before {
+  color: currentcolor;
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 0 0.2em rgba(0, 0, 0, 0.2);
+  font-weight: 500;
+  letter-spacing: -0.05em;
+}
+.reveal .sl-block-content > ol ol ol li:before {
+  opacity: 1;
+  font-size: 0.55em !important;
+  width: 3.5em !important;
+}
+.reveal .sl-block-content > ol ol ol {
+  margin-left: 1.5em !important;
+}
+.reveal .uppercase {
+  text-transform: uppercase;
+}
+.reveal .sl-block[data-block-type="text"] > .initial h1,
+.reveal .sl-block[data-block-type="text"] > .initial h2,
+.reveal .sl-block[data-block-type="text"] > .initial h3 {
+  text-transform: initial;
+}
+.reveal .force-mono text,
+.reveal .force-mono tspan,
+.reveal .force-mono polygon,
+.reveal .force-mono path,
+.reveal .force-mono rect,
+.reveal .force-mono ellipse {
+  fill: currentcolor !important;
+}
+.reveal .force-red .stroked path {
+  stroke: #c00;
+}
+.reveal .force-red,
+.reveal .force-red text,
+.reveal .force-red tspan,
+.reveal .force-red polygon,
+.reveal .force-red path,
+.reveal .force-red rect,
+.reveal .force-red ellipse {
+  color: #c00;
+  fill: currentcolor !important;
+}
+.reveal .force-red .stroked {
+  fill: none;
+  stroke: #c00;
+}
+.reveal .background-shade-dark .sl-block {
+  color: #fff;
+}
+.reveal .dark-foreground text.logotext,
+.reveal section.background-shade-light text.logotext,
+.reveal section.dark-foreground text.logotext,
+.reveal .dark-foreground .logotext text,
+.reveal section.background-shade-light .logotext text,
+.reveal section.dark-foreground .logotext text,
+.reveal .dark-foreground path.logotext,
+.reveal section.background-shade-light path.logotext,
+.reveal section.dark-foreground path.logotext,
+.reveal .dark-foreground path.logotype,
+.reveal section.background-shade-light path.logotype,
+.reveal section.dark-foreground path.logotype,
+.reveal .dark-foreground .logotext path,
+.reveal section.background-shade-light .logotext path,
+.reveal section.dark-foreground .logotext path,
+.reveal .dark-foreground .product,
+.reveal section.background-shade-light .product,
+.reveal section.dark-foreground .product {
+  fill: currentcolor !important;
+}
+.reveal .dark-foreground .redhat-logo .logotext,
+.reveal section.background-shade-light .redhat-logo .logotext,
+.reveal section.dark-foreground .redhat-logo .logotext {
+  fill: currentcolor !important;
+}
+.reveal .slide-background.background-shade-dark:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(40, 40, 40, 0.8);
+}
+.reveal .slide-background.background-shade-light:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.reveal .slides section {
+  text-align: left;
+}
+.reveal .slides section h1 {
+  line-height: 1em;
+  font-weight: 700 ;
+  font-size: 3em ;
+}
+.reveal .slides section h2 {
+  font-size: 2em;
+  font-weight: 400 ;
+  line-height: 1.15em;
+}
+.reveal .slides section h3 {
+  font-weight: 700 ;
+  font-size: 1em ;
+  line-height: 1.25em;
+}
+.reveal .slides section p {
+  margin-bottom: 0.5em;
+}
+.reveal .slides section blockquote {
+  font-style: normal;
+  box-shadow: none;
+}
+.reveal .progress {
+  background-color: transparent;
+}
+.reveal .progress span {
+  background-color: #5e6a71;
+}
+.reveal .absolute-element svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+.reveal .icon.stroked {
+  width: 282px;
+  height: 282px;
+}
+.reveal .icon.stroked.icon-arrow path {
+  stroke-width: 4px !important;
+}
+.reveal .icon.stroked path {
+  fill: none;
+  stroke-width: 1.5px;
+  transition-delay: 0.5s !important;
+  stroke-dashoffset: 0;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentcolor;
+}
+.reveal .icon.stroked path.long {
+  stroke-dasharray: 420,420;
+  transition: 2.5s all ease;
+}
+.reveal .icon.stroked path.longer {
+  stroke-dasharray: 512,512;
+  transition: 2.5s all ease;
+}
+.reveal .icon.stroked path.short {
+  stroke-dasharray: 90,90;
+  transition: 5s all ease;
+}
+.reveal .icon.stroked path.shortest {
+  stroke-dasharray: 5,5;
+  transition: 2s all ease;
+}
+.reveal .icon.stroked path.round {
+  stroke-linecap: round ;
+  stroke-linejoin: round ;
+}
+.reveal .icon.stroked path.virtual {
+  transition: 0.5s all ease;
+  stroke-dasharray: 1.1, 3;
+  stroke-linecap: round ;
+}
+.reveal .icon.stroked path.dashed {
+  stroke-dasharray: 3, 3;
+}
+.reveal .icon.stroked path.hand {
+  stroke-linecap: round;
+}
+.reveal .present path.virtual {
+  -webkit-animation: virtual-outline 60s infinite linear;
+  -moz-animation: virtual-outline 60s infinite linear;
+  animation: virtual-outline 60s infinite linear;
+}
+@-webkit-keyframes virtual-outline {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 512;
+  }
+}
+@-moz-keyframes virtual-outline {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 512;
+  }
+}
+@keyframes virtual-outline {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 512;
+  }
+}
+.reveal a {
+  box-shadow: 0 0.066666em;
+}
+.reveal .overview section.present {
+  border: 12px solid white !important;
+  box-shadow: 0 0 0 10px white, inset 0 0 0 6px rgba(0, 0, 0, 0.2);
+}
+.reveal .rh-pattern {
+  width: 256px;
+  height: 256px;
+}
+.reveal .rh-pattern path {
+  transition: all 0.5s ease;
+}
+.reveal .future .rh-pattern path {
+  stroke-dasharray: 0, 85 !important;
+}
+.reveal .present .rh-pattern path {
+  stroke-dasharray: 80, 0 !important;
+}
+.reveal div[data-block-type="snippet"] .sl-block-content > svg,
+.reveal div[data-block-type="snippet"] > .sl-block-content > svg,
+.reveal div[data-block-type="snippet"] .icon,
+.reveal div[data-block-type="snippet"] .product {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+.reveal div[data-block-type="snippet"] .sl-block-content > svg:not(:last-child) {
+  position: relative;
+}
+.reveal div[data-block-type="snippet"] .icon {
+  top: -15%;
+  right: -15%;
+  bottom: -15%;
+  left: -15%;
+  width: 130%;
+  height: 130%;
+}
+.reveal div[data-block-type="snippet"] {
+  min-width: 60px !important;
+}
+.reveal div[data-block-type="text"] {
+  font-size: 20px;
+}
+.reveal .triangle-element,
+.reveal .triangle-element * {
+  user-select: none;
+}
+.reveal .has-light-background .closing-logo.logotype path {
+  fill: black !important;
+}
+@-webkit-keyframes closing-animation {
+  0% {
+    -webkit-transform: scale(4) translate(40%);
+    transform: scale(4) translate(40%);
+    opacity: 0;
+  }
+  80% {
+    -webkit-transform: scale(1) translate(30%);
+    transform: scale(1) translate(30%);
+  }
+}
+@-moz-keyframes closing-animation {
+  0% {
+    -webkit-transform: scale(4) translate(40%);
+    transform: scale(4) translate(40%);
+    opacity: 0;
+  }
+  80% {
+    -webkit-transform: scale(1) translate(30%);
+    transform: scale(1) translate(30%);
+  }
+}
+@-o-keyframes closing-animation {
+  0% {
+    -webkit-transform: scale(4) translate(40%);
+    transform: scale(4) translate(40%);
+    opacity: 0;
+  }
+  80% {
+    -webkit-transform: scale(1) translate(30%);
+    transform: scale(1) translate(30%);
+  }
+}
+@keyframes closing-animation {
+  0% {
+    -webkit-transform: scale(4) translate(40%);
+    transform: scale(4) translate(40%);
+    opacity: 0;
+  }
+  80% {
+    -webkit-transform: scale(1) translate(30%);
+    transform: scale(1) translate(30%);
+  }
+}
+.reveal .present .closing-logo.icon {
+  -webkit-animation: closing-animation 1.5s 1;
+  -moz-animation: closing-animation 1.5s 1;
+  -o-animation: closing-animation 1.5s 1;
+  animation: closing-animation 1.5s 1;
+}
+.reveal .present .closing-logo.logotype {
+  -webkit-animation: closing-text-animation 1.8s 1;
+  -moz-animation: closing-text-animation 1.8s 1;
+  -o-animation: closing-text-animation 1.8s 1;
+  animation: closing-text-animation 1.8s 1;
+}
+@-webkit-keyframes closing-text-animation {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(-10%);
+    transform: translate(-10%);
+  }
+  70% {
+    -webkit-transform: translate(-10%);
+    transform: translate(-10%);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+    -webkit-transform: none;
+  }
+}
+@-moz-keyframes closing-text-animation {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(-10%);
+    transform: translate(-10%);
+  }
+  70% {
+    -webkit-transform: translate(-10%);
+    transform: translate(-10%);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+    -webkit-transform: none;
+  }
+}
+@keyframes closing-text-animation {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(-10%);
+    transform: translate(-10%);
+  }
+  70% {
+    -webkit-transform: translate(-10%);
+    transform: translate(-10%);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+    -webkit-transform: none;
+  }
+}
+.reveal .brand-pattern-paths path,
+.reveal .pattern-path {
+  stroke-width: 1;
+  fill: none;
+}
+.reveal .brand-pattern-paths path {
+  fill: none !important;
+}
+.reveal pattern {
+  patterntransform: scale(2) !important;
+}
+.reveal pattern.normal use {
+  stroke: currentcolor;
+  fill: none;
+}
+.reveal pattern.light use {
+  stroke: #fff !important;
+  fill: none;
+}
+.reveal pattern.dark use {
+  stroke: #000 !important;
+  fill: none;
+}
+.reveal .brand-pattern {
+  min-width: 40px;
+  min-height: 40px;
+  position: absolute;
+  top: 0 ;
+  left: 0 ;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+.reveal .brand-pattern path,
+.reveal .brand-pattern rect {
+  width: 100% !important;
+  height: 100%;
+}
+.reveal .brand-pattern.corporate {
+  fill: url(#pattern-corporate);
+}
+.reveal #pattern-corporate-2 use {
+  stroke: #dd0000;
+}
+.reveal #pattern-corporate use {
+  stroke: #cc0000;
+}
+.reveal section,
+.reveal .slide-background {
+  -webkit-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.reveal .slides > section.transition-slide,
+.reveal .slides > section.transition-slide + section.future,
+.reveal .slides > section.transition-slide + section.present,
+.reveal .backgrounds > .slide-background.transition-slide,
+.reveal .backgrounds > .slide-background.transition-slide + .slide-background.future,
+.reveal .backgrounds > .slide-background.transition-slide + .slide-background.present {
+  transition: all 1s ease  !important;
+}
+.reveal .backgrounds > .slide-background.transition-slide {
+  opacity: 1 ;
+}
+.reveal .backgrounds > .slide-background.transition-slide.past {
+  z-index: 99;
+  -webkit-transform: translate(-100%, 0);
+  -ms-transform: translate(-100%, 0);
+  transform: translate(-100%, 0);
+}
+.reveal .backgrounds > .slide-background.transition-slide.future,
+.reveal .backgrounds > .slide-background.transition-slide.present + .slide-background.future {
+  -webkit-transform: translate(100%, 0);
+  -ms-transform: translate(100%, 0);
+  transform: translate(100%, 0);
+}
+.reveal .slides > section.transition-slide.past {
+  z-index: 99;
+  -webkit-transform: translate(-150%, 0);
+  -ms-transform: translate(-150%, 0);
+  transform: translate(-150%, 0);
+  visibility: hidden;
+}
+.reveal .slides > section.transition-slide.future,
+.reveal .slides > section.transition-slide.future + section {
+  -webkit-transform: translate(150%, 0);
+  -ms-transform: translate(150%, 0);
+  transform: translate(150%, 0);
+  visibility: hidden;
+}
+.reveal .slides > section.transition-slide-up,
+.reveal .slides > section.transition-slide-up + section.future,
+.reveal .slides > section.transition-slide-up + section.present,
+.reveal .backgrounds > .slide-background.transition-slide-up,
+.reveal .backgrounds > .slide-background.transition-slide-up + .slide-background.future .backgrounds > .slide-background.transition-slide-up + .slide-background.present {
+  transition: all 1s ease  !important;
+}
+.reveal .backgrounds > .slide-background.transition-slide-up {
+  opacity: 1 ;
+}
+.reveal .backgrounds > .slide-background.transition-slide-up.past {
+  z-index: 99;
+  -webkit-transform: translate(0, -100%);
+  -ms-transform: translate(0, -100%);
+  transform: translate(0, -100%);
+}
+.reveal .backgrounds > .slide-background.transition-slide-up.future,
+.reveal .backgrounds > .slide-background.transition-slide-up.present + .slide-background.future {
+  -webkit-transform: translate(0, 100%);
+  -ms-transform: translate(0, 100%);
+  transform: translate(0, 100%);
+}
+.reveal .slides > section.transition-slide-up.past {
+  z-index: 99;
+  -webkit-transform: translate(0, -150%);
+  -ms-transform: translate(0, -150%);
+  transform: translate(0, -150%);
+  visibility: hidden;
+}
+.reveal .slides > section.transition-slide-up.future,
+.reveal .slides > section.transition-slide-up.present + section {
+  -webkit-transform: translate(0, 150%);
+  -ms-transform: translate(0, 150%);
+  transform: translate(0, 150%);
+  visibility: hidden;
+}
+.reveal .slides > section.transition-zoom-in,
+.reveal .slides > section.transition-zoom-in + section.future,
+.reveal .slides > section.transition-zoom-in + section.present,
+.reveal .backgrounds > .slide-background.transition-zoom-in,
+.reveal .backgrounds > .slide-background.transition-zoom-in + .slide-background.future .backgrounds > .slide-background.transition-zoom-in + .slide-background.present {
+  -webkit-transition: all 1s ease  !important;
+  -moz-transition: all 1s ease  !important;
+  transition: all 1s ease  !important;
+}
+.reveal .backgrounds > .slide-background.transition-zoom-in.past {
+  opacity: 0 !important;
+  -webkit-transform: scale(1.5);
+  -ms-transform: scale(0.1 0.5);
+  transform: scale(1.5);
+}
+.reveal .backgrounds > .slide-background.transition-zoom-in.future,
+.reveal .backgrounds > .slide-background.transition-zoom-in.present + .slide-background.future {
+  opacity: 0 !important;
+  -webkit-transform: scale(0.01);
+  -ms-transform: scale(0.01);
+  transform: scale(0.01);
+}
+.reveal .past {
+  z-index: -1;
+  opacity: 0 !important;
+}
+.reveal .present + .slide-background.future {
+  z-index: 99;
+}
+.reveal .slides > section.transition-zoom-in.past {
+  z-index: 99;
+  -webkit-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
+  visibility: hidden;
+}
+.reveal .slides > section.transition-zoom-in.future {
+  -webkit-transform: scale(0.1);
+  -ms-transform: scale(0.1);
+  transform: scale(0.1);
+  visibility: hidden;
+}
+@-webkit-keyframes icon-animation-long {
+  0% {
+    stroke-dashoffset: 420;
+    stroke-width: 0.5px;
+  }
+}
+@-moz-keyframes icon-animation-long {
+  0% {
+    stroke-dashoffset: 420;
+    stroke-width: 0.5px;
+  }
+}
+@keyframes icon-animation-long {
+  0% {
+    stroke-dashoffset: 420;
+    stroke-width: 0.5px;
+  }
+}
+@-webkit-keyframes icon-animation-short {
+  0% {
+    stroke-dashoffset: 90;
+  }
+}
+@-moz-keyframes icon-animation-short {
+  0% {
+    stroke-dashoffset: 90;
+  }
+}
+@keyframes icon-animation-short {
+  0% {
+    stroke-dashoffset: 90;
+  }
+}
+.reveal .present .animate.icon.stroked path,
+.reveal .present .animate .icon.stroked path,
+.reveal .fragment .icon.stroked path {
+  animation: 0;
+  -moz-animation: 0;
+  -webkit-animation: 0;
+  display: none;
+}
+.reveal .present .animate.icon.stroked path.long,
+.reveal .present .animate .icon.stroked path.long,
+.reveal .fragment.visible .icon.stroked path.long {
+  display: block;
+  stroke-width: 2px ;
+  -webkit-animation: icon-animation-long 3.5s 0.5s 1;
+  -moz-animation: icon-animation-long 3.5s 0.5s 1;
+  animation: icon-animation-long 3.5s 0.5s 1;
+}
+.reveal .present .animate.icon.stroked path.short,
+.reveal .present .animate .icon.stroked path.short,
+.reveal .fragment.visible .icon.stroked path.short {
+  display: block;
+  -webkit-animation: icon-animation-short 3.5s 0.5s 1 !important;
+  -moz-animation: icon-animation-short 3.5s 0.5s 1 !important;
+  animation: icon-animation-short 3.5s 0.5s 1 !important;
+}
+.reveal .triangle-element {
+  transition: all 0.4s cubic-bezier(0.21, 0.9, 0.55, 1) 5s;
+}
+.reveal.reveal:hover .triangle-element {
+  transition: all 1s cubic-bezier(0.21, 0.9, 0.55, 1.16) 0s !important;
+  top: 100% !important;
+  left: 100% !important;
+  opacity: 0.95;
+}
+.reveal .has-dark-background .only-dark {
+  display: none;
+}
+.reveal .has-light-background .only-light {
+  display: none;
+}
+.reveal .thinner .icon.stroked path {
+  stroke-width: 1px !important;
+}
+.reveal .thinnest .icon.stroked path {
+  stroke-width: 0.05em !important;
+}
+.reveal .thicker .icon.stroked path {
+  stroke-width: 3px !important;
+}
+.reveal .thickest .icon.stroked path {
+  stroke-width: 4px !important;
+}
+.reveal .angle {
+  -ms-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.reveal .rangle {
+  -ms-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.reveal .sl-block > .vertical {
+  -ms-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+.reveal .skewed {
+  transition: all 1s cubic-bezier(0.13, 0.81, 0.08, 1);
+  -moz-transform: skew(-45deg, 0);
+  -ms-transform: skew(-45deg, 0);
+  -webkit-transform: skew(-45deg, 0);
+  transform: skew(-45deg, 0);
+}
+.reveal .future .skewed {
+  margin-left: -800%;
+  opacity: 0;
+}
+.reveal .past .skewed {
+  margin-left: 800%;
+  opacity: 0;
+}
+.reveal .item-label,
+.reveal .item-box {
+  letter-spacing: 0em;
+  font-weight: 500;
+}
+.reveal .epic-content-box {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.reveal .has-dark-background .epic-content-box {
+  box-shadow: inset 0 0 0.51em rgba(0, 0, 0, 0.25), 0 0.05em 0.05em rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.15);
+}
+.reveal .has-light-background .epic-content-box {
+  box-shadow: inset 0 0 0.2em rgba(255, 255, 255, 0.5), 0 0.06666em 0.555em 0 rgba(0, 0, 0, 0.12);
+}
+.reveal .controls {
+  bottom: 1%;
+  right: 1%;
+}
+.reveal .controls button {
+  opacity: 0;
+}
+.reveal .controls button.enabled {
+  opacity: 1;
+}
+.reveal .controls {
+  opacity: 0 !important;
+  transition: opacity 0.5s ease 4.8s, transform 0.5s ease 4.8s;
+  transform: scale(0.4);
+}
+.reveal.reveal:hover .controls {
+  transform: scale(1);
+  opacity: 1 !important;
+  transition: opacity 0.5s ease 0s, transform 0.5s ease 0s;
+}
+.reveal .backgrounds {
+  transition-property: height;
+  transition-duration: 1s;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+.reveal .complex-logo {
+  min-height: 70px;
+  min-width: 70px;
+  width: 100%;
+}
+.reveal .complex-logo,
+.reveal .complex-logo svg,
+.reveal .complex-logo > div {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.reveal .complex-logo > div.line-icon,
+.reveal .complex-logo svg > div.line-icon,
+.reveal .complex-logo > div > div.line-icon,
+.reveal .complex-logo > div.logomark,
+.reveal .complex-logo svg > div.logomark,
+.reveal .complex-logo > div > div.logomark {
+  transform-origin: 12% 50%;
+}
+.reveal .animated .complex-logo div {
+  transition: all 0.5s ease;
+}
+.reveal .animated .complex-logo div.line-icon {
+  transition-delay: 2s;
+}
+.reveal .animated .complex-logo div.line-icon path {
+  transition: all 1s ease 0.52s;
+  stroke-dasharray: 100 ,10;
+}
+.reveal .animated .complex-logo div.event-name {
+  transition-delay: 1s;
+}
+.reveal .animated .complex-logo div.location {
+  transition-delay: 1.4s;
+}
+.reveal .future .animated .complex-logo > div {
+  transition: none;
+}
+.reveal .future .animated .complex-logo > div.line-icon path {
+  stroke-dasharray: 0 ,100;
+  transition: none;
+}
+.reveal .future .animated .complex-logo {
+  /*.line-icon{transform:rotate(30deg); opacity:0;}*/
+}
+.reveal .future .animated .complex-logo .logomark {
+  transform: translate(0, -20%);
+}
+.reveal .future .animated .complex-logo .location {
+  transform: translate(0, 0.5em);
+  opacity: 0;
+}
+.reveal .future .animated .complex-logo .event-name {
+  opacity: 0;
+  transform: translate(-0.6em, 0);
+}
+.reveal .lowercase {
+  text-transform: lowercase;
+}
+.reveal .pop-in.fragment {
+  -webkit-transform: scale(0.2);
+  -moz-transform: scale(0.2);
+  -ms-transform: scale(0.2);
+  transform: scale(0.2);
+  -webkit-transition: 2s ease 0.25s;
+  -moz-transition: 2s ease 0.25s;
+  -ms-transition: 2s ease 0.25s;
+  transition: 2s ease 0.25s;
+  -webkit-animation-delay: 0.66s;
+  -moz-animation-delay: 0.66s;
+  -ms-animation-delay: 0.66s;
+  animation-delay: 0.66s;
+}
+.reveal .pop-in.fragment.visible {
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+.reveal .pop-in.fragment.current-fragment {
+  color: #c22;
+}
+.reveal .grow-width {
+  -webkit-transition: all 0.5s ease 0.2s;
+  -moz-transition: all 0.5s ease 0.2s;
+  -o-transition: all 0.5s ease 0.2s;
+  -ms-transition: all 0.5s ease 0.2s;
+  transition: all 0.5s ease 0.2s;
+}
+.reveal .future .grow-width {
+  width: 0% !important;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  -ms-transition: none;
+  transition: none;
+}
+.reveal .stampit {
+  -webkit-transition: all 1s cubic-bezier(0.79, 0.53, 0.46, 1.3) 1s;
+  -moz-transition: all 1s cubic-bezier(0.79, 0.53, 0.46, 1.3) 1s;
+  -ms-transition: all 1s cubic-bezier(0.79, 0.53, 0.46, 1.3) 1s;
+  transition: all 1s cubic-bezier(0.79, 0.53, 0.46, 1.3) 1s;
+}
+.reveal .future .stampit {
+  -webkit-transform: rotate(-12deg) scale(2);
+  -moz-transform: rotate(-12deg) scale(2);
+  -ms-transform: rotate(-12deg) scale(2);
+  transform: rotate(-12deg) scale(2);
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  transition: none;
+  opacity: 0;
+}
+.reveal .headshot img {
+  border-radius: 50%;
+  border: 4px solid #c00 !important;
+}
+.reveal .condensed {
+  letter-spacing: 0.02em;
+}
+.reveal .condensed li {
+  margin-bottom: 1em ;
+}
+.reveal .has-light-background .sl-block .has-dark-background > svg.redhat-logo .logotext {
+  fill: #ffffff !important;
+}
+.reveal .has-light-background .sl-block .reversed.redhat-logo .logotext,
+.reveal .has-light-background .sl-block .reversed .redhat-logo .logotext,
+.reveal .has-light-background .sl-block .has-dark-background > .redhat-logo .logotext {
+  fill: #ffffff !important;
+}
+.reveal .has-dark-background .sl-block .reversed.redhat-logo .logotext,
+.reveal .has-dark-background .sl-block .reversed .redhat-logo .logotext,
+.reveal .has-dark-background .sl-block .has-light-background > .redhat-logo .logotext {
+  fill: #000000 !important;
+}
+.reveal .has-dark-background .has-light-background .logo .only-dark path,
+.reveal .has-light-background .mono.redhat-logo path {
+  fill: #000000 !important;
+}
+.reveal .has-dark-background .mono.redhat-logo path {
+  fill: #ffffff;
+}
+.reveal .has-dark-background .logo .only-dark {
+  display: block;
+}
+.reveal .has-light-background .logo .only-light {
+  display: block;
+}
+.reveal .has-light-background .logo .only-dark {
+  display: none;
+}
+.reveal .has-dark-background .logo .only-light {
+  display: none;
+}
+.reveal .has-light-background .reversed svg path {
+  fill: #ffffff !important;
+}
+.reveal .has-dark-background .reversed svg path {
+  fill: currentcolor;
+}
+.reveal .has-dark-background .has-light-background .logo .only-light,
+.reveal .has-dark-background .reversed .logo .only-dark {
+  display: block;
+}
+.reveal .has-light-background .has-dark-background .logo .only-dark,
+.reveal .has-light-background .logo .only-light {
+  display: block;
+}
+.reveal .has-light-background .has-dark-background .redhat-logo .only-dark,
+.reveal .has-light-background .redhat-logo .only-light {
+  fill: #ffffff !important;
+}
+.reveal .has-light-background .has-dark-background .logo .only-light,
+.reveal .has-light-background .logo .only-dark,
+.reveal .has-dark-background .has-light-background .logo .only-dark,
+.reveal .has-dark-background .logo .only-light {
+  display: none;
+}
+.reveal .future .fade-up,
+.reveal .future .fade-down,
+.reveal .future .fade-left,
+.reveal .future .fade-right,
+.reveal .future .fade-zoom {
+  -webkit-transition: none;
+  transition: none;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.reveal .future .fade-up,
+.reveal .fade-up.fragment {
+  -webkit-transform: translate(0, 2em);
+  -ms-transform: translate(0, 2em);
+  transform: translate(0, 2em);
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.reveal .future .fade-down,
+.reveal .fade-down.fragment {
+  -webkit-transform: translate(0, -2em);
+  -ms-transform: translate(0, -2em);
+  transform: translate(0, -2em);
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.reveal .future .fade-left,
+.reveal .fade-left.fragment {
+  -webkit-transform: translate(2em, 0);
+  -ms-transform: translate(2em, 0);
+  transform: translate(2em, 0);
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.reveal .future .fade-right,
+.reveal .fade-right.fragment {
+  -webkit-transform: translate(-2em, 0);
+  -ms-transform: translate(-2em, 0);
+  transform: translate(-2em, 0);
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.reveal .future .fade-zoom,
+.reveal .fade-zoom.fragment {
+  -webkit-transform: scale(0.1);
+  -ms-transform: scale(0.1);
+  transform: scale(0.1);
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.reveal .future .fade-in {
+  transition: none;
+  opacity: 0;
+}
+.reveal .present .fade-in,
+.reveal .present .fade-up,
+.reveal .present .fade-down,
+.reveal .present .fade-left,
+.reveal .present .fade-right,
+.reveal .present .fade-zoom {
+  -webkit-transition: all 0.5s ease 0.5s;
+  transition: all 0.5s ease 0.5s;
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.reveal .present .fragment.visible.fade-up,
+.reveal .present .fragment.visible.fade-down,
+.reveal .present .fragment.visible.fade-left,
+.reveal .present .fragment.visible.fade-right,
+.reveal .present .fragment.visible.fade-zoom {
+  -webkit-transform: none ;
+  -ms-transform: none ;
+  transform: none ;
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.reveal .sl-block {
+  font-family: "Overpass 2", "Hiragino Kaku Gothic", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ Pro W3", Overpass, sans-serif !important;
+}
+.reveal .has-light-background .icon.stroked {
+  color: currentcolor;
+}
+.reveal .has-dark-background .icon.stroked path {
+  stroke: currentcolor;
+}
+.reveal .has-dark-background .only-light-background {
+  display: none !important;
+}
+.reveal .has-dark-background .only-dark-background {
+  display: block !important;
+}
+.reveal a.call-to-action:hover {
+  background-color: #d00 !important;
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.05) !important;
+  text-shadow: none !important;
+}
+.reveal .sl-block[data-block-type="snippet"] table {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+.reveal .sl-block[data-block-type="snippet"] table td {
+  border-color: currentcolor !important;
+}
+.reveal .sl-block[data-block-type="snippet"] table td {
+  text-align: inherit !important;
+}
+.reveal .sl-block[data-block-type="text"] table {
+  width: 100%;
+}
+.reveal .sl-block[data-block-type="text"] table td {
+  border-color: currentcolor;
+}
+.reveal .sl-block[data-block-type="text"] table td {
+  text-align: inherit;
+}
+.reveal.reveal .sl-block[data-block-type="image"] .person {
+  border-radius: 50%;
+  position: relative !important;
+  background-color: transparent;
+  height: auto !important;
+}
+.reveal.reveal .sl-block[data-block-type="image"] .person:before {
+  content: "" !important;
+  display: block !important;
+  padding-top: 100% ;
+  position: relative !important ;
+  /* 4:3 aspect ratio */
+}
+.reveal.reveal .sl-block[data-block-type="image"] .person > img {
+  position: absolute ;
+  margin: 0 auto !important;
+  left: 0% ;
+  right: 0 ;
+  width: auto !important;
+  top: 0  ;
+  bottom: 0 ;
+}
+.reveal .present .delay-1 {
+  transition-delay: 0.1s;
+}
+.reveal .present .delay-2 {
+  transition-delay: 0.2s;
+}
+.reveal .present .delay-3 {
+  transition-delay: 0.3s;
+}
+.reveal .present .delay-4 {
+  transition-delay: 0.4s;
+}
+.reveal .present .delay-5 {
+  transition-delay: 0.5s;
+}
+.reveal .present .delay-6 {
+  transition-delay: 0.6s;
+}
+.reveal .present .delay-7 {
+  transition-delay: 0.7s;
+}
+.reveal .present .delay-8 {
+  transition-delay: 0.8s;
+}
+.reveal .present .delay-9 {
+  transition-delay: 0.9s;
+}
+.reveal .present .delay-10 {
+  transition-delay: 1s;
+}
+.reveal .present .delay-11 {
+  transition-delay: 1.1s;
+}
+.reveal .present .delay-12 {
+  transition-delay: 1.2s;
+}
+.reveal .present .delay-13 {
+  transition-delay: 1.3s;
+}
+.reveal .present .delay-14 {
+  transition-delay: 1.4s;
+}
+.reveal .present .delay-15 {
+  transition-delay: 1.5s;
+}
+.reveal .present .delay-16 {
+  transition-delay: 1.6s;
+}
+.reveal .present .delay-17 {
+  transition-delay: 1.7s;
+}
+.reveal .present .delay-18 {
+  transition-delay: 1.8s;
+}
+.reveal .present .delay-19 {
+  transition-delay: 1.9s;
+}
+.reveal .present .delay-20 {
+  transition-delay: 2s;
+}
+.reveal .present .delay-21 {
+  transition-delay: 2.1s;
+}
+.reveal .present .delay-22 {
+  transition-delay: 2.2s;
+}
+.reveal .present .delay-23 {
+  transition-delay: 2.3s;
+}
+.reveal .present .delay-24 {
+  transition-delay: 2.4s;
+}
+.reveal .present .delay-25 {
+  transition-delay: 2.5s;
+}
+.reveal .present .delay-26 {
+  transition-delay: 2.6s;
+}
+.reveal .present .delay-27 {
+  transition-delay: 2.7s;
+}
+.reveal .present .delay-28 {
+  transition-delay: 2.8s;
+}
+.reveal .present .delay-29 {
+  transition-delay: 2.9s;
+}
+.reveal .present .delay-30 {
+  transition-delay: 3s;
+}
+.reveal .present .delay-31 {
+  transition-delay: 3.1s;
+}
+.reveal .present .delay-32 {
+  transition-delay: 3.2s;
+}
+.reveal .present .delay-33 {
+  transition-delay: 3.3s;
+}
+.reveal .present .delay-34 {
+  transition-delay: 3.4s;
+}
+.reveal .present .delay-35 {
+  transition-delay: 3.5s;
+}
+.reveal .present .delay-36 {
+  transition-delay: 3.6s;
+}
+.reveal .present .delay-37 {
+  transition-delay: 3.7s;
+}
+.reveal .present .delay-38 {
+  transition-delay: 3.8s;
+}
+.reveal .present .delay-39 {
+  transition-delay: 3.9s;
+}
+.reveal .present .delay-40 {
+  transition-delay: 4s;
+}
+.reveal .light-foreground .sl-block * {
+  color: #fff;
+}
+.reveal .dark-foreground .sl-block * {
+  color: #000;
+}
+.reveal .has-dark-background .invert {
+  color: #000;
+}
+.reveal .has-light-background .invert * {
+  color: #fff;
+}
+.reveal .has-light-background .invert .only-light-background {
+  display: none ;
+}
+.reveal .has-light-background .invert .only-dark-background {
+  display: block !important;
+}
+.reveal .has-dark-background .invert .only-light-background {
+  display: block !important ;
+}
+.reveal .has-dark-background .invert .only-dark-background {
+  display: none !important;
+}
+.reveal .slide-number {
+  position: absolute !important;
+  opacity: 1;
+  right: 1em;
+  height: 28px;
+  min-width: 28px;
+  bottom: auto;
+  left: auto;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 28px;
+  line-height: 28px;
+  color: white;
+  text-shadow: 0 0.1em 0.5em rgba(0, 0, 0, 0.4);
+  top: 1em;
+  font-family: "Overpass 2", Overpass, sans-serif;
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 4px;
+  box-sizing: content-box;
+}
+.reveal .slide-number-delimiter {
+  margin: 0 1px;
+}
+html:not([data-mode="arrange"]) .reveal .present.in-3d-appear {
+  transform: translatez(0em) !important;
+  animation: none !important;
+  transition: transform 1s ease !important;
+}
+html:not([data-mode="arrange"]) .reveal .future.in-3d-appear {
+  transform: translatez(10em) rotateX(21deg) !important;
+  animation: none !important;
+}
+.reveal .no-filter img,
+.reveal .no-filter {
+  filter: none !important;
+  -webkit-filter: none !important;
+}
+.reveal .present .fade-in-slow {
+  transition: all 5s ease;
+}
+.reveal .future .fade-in-slow {
+  transition: none;
+  opacity: 0;
+}
+.reveal .redhat-logo .logotext {
+  fill: #000 !important;
+}
+.reveal .has-dark-background .redhat-logo .logotext {
+  fill: #fff !important;
+}
+.reveal [data-block-type="table"] .sl-block-content {
+  font-size: 0.75em;
+  background-color: #c00;
+  color: #fff;
+}
+.reveal [data-block-type="table"] td {
+  background-color: #e5e5e5;
+  color: #333;
+  border-color: white;
+}
+.reveal div[data-block-type="table"] th {
+  font-weight: 500;
+}
+.reveal [data-block-type="table"] tr:nth-child(odd) td {
+  background-color: #f5f5f5;
+  color: #333;
+}
+.reveal .has-dark-background > [data-block-type="table"] td {
+  background-color: #131619;
+  color: #fff;
+}
+.reveal .has-dark-background > [data-block-type="table"] tr:nth-child(odd) td {
+  background-color: #232629;
+  color: #fff;
+}
+.reveal [data-block-type="code"],
+.reveal .hljs {
+  background-color: white ;
+  color: rgba(55, 55, 55, 0.85) !important;
+}
+.reveal section .hljs {
+  background-color: white !important;
+}
+.reveal .has-dark-background [data-block-type="code"],
+.reveal .has-dark-background .hljs {
+  background-color: #012736 !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+.reveal [data-block-type="code"] pre {
+  letter-spacing: 0.015em;
+  line-height: 1.5em;
+}
+.reveal .has-light-background[data-block-type="code"] pre,
+.reveal [data-block-type="code"] pre {
+  background-color: white ;
+  color: currentcolor;
+  padding: 1em !important;
+}
+.reveal .has-dark-background [data-block-type="code"] pre {
+  background-color: #012736;
+}
+.reveal .hljs,
+.reveal pre,
+.reveal code {
+  font-family: 'Overpass Mono', monospace !important;
+  font-weight: 200 !important;
+}
+.reveal .hljs-literal {
+  color: #ffb612 !important;
+}
+.reveal .hljs-keyword {
+  color: #ffb612;
+  font-weight: 700 !important;
+}
+.reveal .hljs-string {
+  color: #88c639;
+  font-weight: 700;
+}
+.reveal .hljs-comment {
+  color: #94a0a7 !important;
+  font-weight: 400 !important;
+}
+.reveal .hljs-params {
+  color: #028c98;
+  font-weight: 700;
+}
+.reveal .hljs-attr {
+  color: #EC7A08 !important;
+}
+.reveal .hljs-tag {
+  color: #7F5FAE !important;
+}
+.reveal .hljs-name {
+  color: #028c98 !important;
+}
+.reveal .hljs-string {
+  color: #7f5fae !important;
+}
+.reveal .hljs-comment {
+  color: rgba(125, 125, 125, 0.65) !important;
+}
+.reveal .hljs-number {
+  color: #4e9fdd !important;
+}
+.reveal .hljs-attribute {
+  color: #ec9e34 !important;
+}
+.reveal .hljs-variable {
+  color: #4e9fdd !important;
+}
+.reveal .hljs-built_in {
+  color: #ee1122 !important;
+}
+.reveal .hljs-selector-class {
+  color: #55aab2 !important;
+}
+.reveal [data-line-end-type="line-arrow"] line,
+.reveal [data-line-start-type="line-arrow"] line,
+.reveal [data-line-end-type="line-arrow"] path {
+  stroke-linecap: round;
+  stroke-linejoin: square;
+}
+.reveal div[data-block-type="line"] line[stroke="#000000"],
+.reveal div[data-block-type="line"] path[stroke="#000000"] {
+  stroke: currentcolor;
+}
+.reveal [fill="none"] {
+  fill: none !important;
+}
+.reveal [fill="#a30000"] {
+  fill: #a00 !important;
+}
+.reveal [fill="#cc2029"],
+.reveal [fill="#cb2027"],
+.reveal [fill="#c00"] {
+  fill: #c00 !important;
+}
+.reveal [fill="#fff"] {
+  fill: #fff !important;
+}
+.reveal [fill="#6d6e70"] {
+  fill: #6d6e70 !important;
+}
+.reveal [fill="#231f20"] {
+  fill: currentcolor !important;
+}
+.reveal [fill="#efab1f"] {
+  fill: #efab1f !important;
+}
+.reveal [fill="#92d400"] {
+  fill: #92d400 !important;
+}
+.reveal .has-dark-background [fill="#6d6e70"] {
+  fill: #266272 !important;
+}
+.reveal .has-dark-background [fill="#fff"] {
+  fill: #555 !important;
+}
+.reveal .has-dark-background [fill="#fff"] {
+  fill: #333 !important;
+}
+.reveal .has-dark-background [stroke="#231f20"] {
+  stroke: currentcolor;
+}
+.reveal .has-dark-background [fill="#221F1F"],
+.reveal .has-dark-background [fill="#221f1f"],
+.reveal .has-dark-background [fill="#231F20"],
+.reveal .has-dark-background [fill="#010101"] {
+  fill: white !important;
+}
+.reveal [data-inline-svg="true"] img {
+  display: none;
+}
+.reveal .product-logo path:nth-last-child(2) {
+  fill: #000;
+}
+.reveal .force-mono .product-logo path:nth-last-child(2) {
+  opacity: 0;
+}
+.reveal .corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 8;
+}
+.reveal .corner svg {
+  transition: all 0.75s ease 5s;
+}
+
+		</style>
+
+	</head>
+	<body class="reveal-viewport theme-font-overpass2 theme-color-no-color">
+		<div class="reveal">
+			<div class="slides">
+				<section data-background-color="#b21a0f" data-background-image="2019-container-future/60672f0849c5b758b11dc0905dc42c02.svg" data-id="59a284de51d4ef304b5cd1379cf67593"><div class="sl-block" data-block-type="text" style="height: auto; width: 915px; left: 45px; top: 278px;" data-block-id="dba44663bdf8041ee5eda1d027b9ab70"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; text-align: left;">
+<h1>Future of Containers</h1>
+
+<h3> </h3>
+
+<h3>vincent Batts</h3>
+
+<p>Office of the CTO - Emerging Technologies</p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 360px; height: 122.4px; left: 45px; top: 76.5px; min-width: 4px; min-height: 4px;" data-block-id="939c29dc2497ea403bf9f55697db8170"><div class="sl-block-content" style="z-index: 11;" data-inline-svg="true">
+<img data-natural-width="500" data-natural-height="170" style="" data-lazy-loaded="" data-src="2019-container-future/bfa11a84cdd2fc0f50cb6fb54942bd62.svg"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 613 145" height="170" width="500" class="redhat-logo"><path class="logohat" style="fill:#fff;" d="M127.47,83.49c12.51,0,30.61-2.58,30.61-17.46a14,14,0,0,0-.31-3.42l-7.45-32.36c-1.72-7.12-3.23-10.35-15.73-16.6C124.89,8.69,103.76.5,97.51.5,91.69.5,90,8,83.06,8c-6.68,0-11.64-5.6-17.89-5.6-6,0-9.91,4.09-12.93,12.5,0,0-8.41,23.72-9.49,27.16A6.43,6.43,0,0,0,42.53,44c0,9.22,36.3,39.45,84.94,39.45M160,72.07c1.73,8.19,1.73,9.05,1.73,10.13,0,14-15.74,21.77-36.43,21.77C78.54,104,37.58,76.6,37.58,58.49a18.45,18.45,0,0,1,1.51-7.33C22.27,52,.5,55,.5,74.22c0,31.48,74.59,70.28,133.65,70.28,45.28,0,56.7-20.48,56.7-36.65,0-12.72-11-27.16-30.83-35.78"></path><path class="logotext" style="fill:#fff;" d="M579.74,92.8c0,11.89,7.15,17.67,20.19,17.67a52.11,52.11,0,0,0,11.89-1.68V95a24.84,24.84,0,0,1-7.68,1.16c-5.37,0-7.36-1.68-7.36-6.73V68.3h15.56V54.1H596.78v-18l-17,3.68V54.1H568.49V68.3h11.25Zm-53,.32c0-3.68,3.69-5.47,9.26-5.47a43.12,43.12,0,0,1,10.1,1.26v7.15a21.51,21.51,0,0,1-10.63,2.63c-5.46,0-8.73-2.1-8.73-5.57m5.2,17.56c6,0,10.84-1.26,15.36-4.31v3.37h16.82V74.08c0-13.56-9.14-21-24.39-21-8.52,0-16.94,2-26,6.1l6.1,12.52c6.52-2.74,12-4.42,16.83-4.42,7,0,10.62,2.73,10.62,8.31v2.73a49.53,49.53,0,0,0-12.62-1.58c-14.31,0-22.93,6-22.93,16.73,0,9.78,7.78,17.24,20.19,17.24m-92.44-.94h18.09V80.92h30.29v28.82H506V36.12H487.93V64.41H457.64V36.12H439.55ZM370.62,81.87c0-8,6.31-14.1,14.62-14.1A17.22,17.22,0,0,1,397,72.09V91.54A16.36,16.36,0,0,1,385.24,96c-8.2,0-14.62-6.1-14.62-14.09m26.61,27.87h16.83V32.44l-17,3.68V57.05a28.3,28.3,0,0,0-14.2-3.68c-16.19,0-28.92,12.51-28.92,28.5a28.25,28.25,0,0,0,28.4,28.6,25.12,25.12,0,0,0,14.93-4.83ZM320,67c5.36,0,9.88,3.47,11.67,8.83H308.47C310.15,70.3,314.36,67,320,67M291.33,82c0,16.2,13.25,28.82,30.28,28.82,9.36,0,16.2-2.53,23.25-8.42l-11.26-10c-2.63,2.74-6.52,4.21-11.14,4.21a14.39,14.39,0,0,1-13.68-8.83h39.65V83.55c0-17.67-11.88-30.39-28.08-30.39a28.57,28.57,0,0,0-29,28.81M262,51.58c6,0,9.36,3.78,9.36,8.31S268,68.2,262,68.2H244.11V51.58Zm-36,58.16h18.09V82.92h13.77l13.89,26.82H292l-16.2-29.45a22.27,22.27,0,0,0,13.88-20.72c0-13.25-10.41-23.45-26-23.45H226Z"></path></svg>
+</div></div></section><section data-id="f53fcdcd6489df9e560e191c5407bb96" data-background-image="2019-container-future/7900634d1a821fe1718dd894b47e93b9.jpg" data-background-opacity="0.2" data-background-color="#fafafa"><div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 40px; top: 47px;" data-block-id="9925c8b93080e6af3e1b175027c66164"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<h2>📦 Container Ecosystem</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 80px; top: 125px;" data-block-id="d7ba6c56ad4cd72ecaf9625b7ef4f71e"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;" data-fragment-index="0">
+<p>parts of containers are "boring" now!</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 764px; left: 160px; top: 265px;" data-block-id="5db40d8f2bcb44833258338887b17124"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;" data-fragment-index="2">
+<p>conversation is at (and has been) at the orchestration layer (kubernetes/openshift)</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 109px; top: 195px;" data-block-id="c7a191366533606a87c83916fc33d98d"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;" data-fragment-index="1">
+<p>standardization! OCI specifications</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 240px; top: 405px;" data-block-id="a5700e4729de32f6d05b8c0af7b2e703"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15;" data-fragment-index="4">
+<p>foundational community has bounded and rebounded, and is solid</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 200px; top: 335px;" data-block-id="5159c2dc0e0b5f6fcc2009d822dbf413"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16;" data-fragment-index="3">
+<p>less and less dependence on `docker`</p>
+</div></div></section><section class="stack" data-id="104d46d644374bde31f57236482df148"><section data-background-color="#fac9a5" data-background-image="2019-container-future/7900634d1a821fe1718dd894b47e93b9.jpg" data-background-opacity="0.15" data-id="0de960cf09b4fdaf0420400bc2c062a9">
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 53px; top: 47px;" data-block-id="b7fa51aa6381acc9a897444d4f2599b8"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<h2>More &amp; more isolation</h2>
+</div></div>
+<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 553px; height: 415px; left: 204px; top: 143px;" data-block-id="e5d3f1bb4ddef81ab1f244676652a12b"><div class="sl-block-content fragment" style="z-index: 12;" data-fragment-index="0"><img style="" data-natural-width="1000" data-natural-height="750" data-lazy-loaded="" data-src="2019-container-future/512aa6a868ffd350901d0f638f458561.jpg"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 135px; left: 640px; top: 567px;" data-block-id="14f3175f9fcdac737867f34ee662ef73"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;" data-fragment-index="0">
+<p>(<a href="2019-container-future/512aa6a868ffd350901d0f638f458561.jpg" target="_blank">source</a>)</p>
+</div></div></section><section data-background-color="#fac9a5" data-background-image="2019-container-future/7900634d1a821fe1718dd894b47e93b9.jpg" data-background-opacity="0.15" data-id="a2da7773b56e77336169158462cdf168">
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 53px; top: 47px;" data-block-id="38996d580a96c22276c596afb361ca24"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h2>More &amp; more isolation</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 120px; top: 195px;" data-block-id="0d598f8f59c1ef155c192078deae2ab0"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 140%;">
+<p>containers inside containers</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 740px; left: 160px; top: 284px;" data-block-id="fa13ccf074adfa446ae86be14653e81c"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; font-size: 140%;">
+<p>challenges of non-root everywhere (vfs and namespaces)</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 212px; top: 366px;" data-block-id="b029b8633bd564143d2685d74bfde653"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; font-size: 140%;">
+<p>smarter and smarter CAPS, syscall awareness</p>
+</div></div></section><section data-background-color="#fac9a5" data-background-image="2019-container-future/7900634d1a821fe1718dd894b47e93b9.jpg" data-background-opacity="0.15" data-id="fb973c737c0a3bdfa9009b79d11e0d87">
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 53px; top: 47px;" data-block-id="7d3a1b05bede25aa4bca2409b9b7f602"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<h2>More &amp; more isolation</h2>
+</div></div>
+<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 631px; height: 227px; left: 135px; top: 217px;" data-block-id="97845a021d20d62ef8f21ffbf1120819"><div class="sl-block-content" style="z-index: 12;"><img style="" data-natural-width="631" data-natural-height="227" data-lazy-loaded="" data-src="2019-container-future/be04b269f9707c3e393322e7434798b8.png"></div></div></section><section data-background-color="#fac9a5" data-background-image="2019-container-future/7900634d1a821fe1718dd894b47e93b9.jpg" data-background-opacity="0.15" data-id="592244b48695a9f524bef77e44dc6fb1">
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 298px;" data-block-id="eb114803046c59cf8f61287eebfb7e6f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p style="text-align: center;"><span style="font-size:1.8em">The goal is for consistent experience</span></p>
+
+<p style="text-align: center;"><span style="font-size:1.8em">in all arrangements</span></p>
+</div></div></section></section><section class="stack" data-id="d8ff420db41a286d93754779afad7ec7"><section data-background-color="#f8d68f" data-background-image="2019-container-future/7900634d1a821fe1718dd894b47e93b9.jpg" data-background-opacity="0.15" data-id="f26e5dd9879c8d5b76de8fcdfab9a291">
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 53px; top: 47px;" data-block-id="49511065eb8d858e2850b606bea7daca"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h2>Control groups</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 120px; top: 125px;" data-block-id="e342ebdf818f742a902d63e149abffc2"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 140%;">
+<p>cgroups v2 are coming!</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 160px; top: 195px;" data-block-id="ee5befae5b20934ca072bedc631a8c01"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; font-size: 140%;">
+<p>"hybrid" cgroups was no good</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 200px; top: 265px;" data-block-id="ed79b8d5d2bcddc75c4cc20de82c2e36"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; font-size: 140%;">
+<p>BPF will be a new technology to settle down</p>
+</div></div></section><section data-background-color="#f8d68f" data-background-image="2019-container-future/7900634d1a821fe1718dd894b47e93b9.jpg" data-background-opacity="0.15" data-id="011a3014b3498143fe2dbe3107857f4c">
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 53px; top: 47px;" data-block-id="62f653134fd36ba83abb3fb8b944565b"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<h2>Control groups</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 120px; top: 125px;" data-block-id="c586774ad52a92bf3adbcfd6c5eec3c8"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p><strong>v1 controllers are each their own hierarchy</strong></p>
+
+<p> (pids, memory, freezer, devices, net_cls, net_prio, cpu, cpuacct, cupset, hugetlb, blkio, perf_event)</p>
+</div></div>
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 120px; top: 306px;" data-block-id="1ed6db70a8b1062caa8580c40d206b96"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;">
+<p><strong>v2 controllers are a unified hierarchy</strong></p>
+
+<p> (cpu, memory, io, pids, cpuset, rdma, perf_event)</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 120px; top: 449px;" data-block-id="5fd93b54fac2d94567b1bbe85683376c"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;">
+<p><strong>Some controllers are only via BPF now</strong></p>
+
+<p> (devices)</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 134px; top: 607px;" data-block-id="3cdce6f34b119ff4838aa3f345c5e4ec"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15;">
+<p><a href="https://medium.com/nttlabs/cgroup-v2-596d035be4d7" target="_blank">https://medium.com/nttlabs/cgroup-v2-596d035be4d7 </a></p>
+</div></div></section><section data-background-color="#f8d68f" data-background-image="2019-container-future/7900634d1a821fe1718dd894b47e93b9.jpg" data-background-opacity="0.15" data-id="6f69bc7fd3799469675741caa087e307">
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 53px; top: 47px;" data-block-id="aa3ce8d8c87d3045eb99d0343e2edc44"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h2>BPF</h2>
+</div></div>
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 711px; left: 120px; top: 156px;" data-block-id="f813f9d090e292c84ac4921e1144505f"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 140%;" data-fragment-index="0">
+<p>Super Cool Tech that we'll all hear more and more about</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 160px; top: 225px;" data-block-id="6101a472384ec9086d9450e9ba63ab6e"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; font-size: 140%;" data-fragment-index="1">
+<p>Originally focused on network filtering logic,</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 680px; left: 200px; top: 296px;" data-block-id="bfcf09c9555fd9ed264eac002b853b98"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; font-size: 140%;" data-fragment-index="2">
+<p>Now is kernel instrumented bytecode run in-kernel VM</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 767px; left: 160px; top: 366px;" data-block-id="a63cb15d1a39b3a647a92fe981687661"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; font-size: 140%;" data-fragment-index="2">
+<p>Currently requires a compiler and is largely not relocatable 😰</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 807px; left: 120px; top: 436px;" data-block-id="0cb5f05a340e1ca618d44d41e2c057d5"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16; font-size: 140%;" data-fragment-index="2">
+<p>Will likely become the defacto tracing tool for containers at large</p>
+</div></div></section></section><section class="stack" data-id="20e9dffb13c49f54da330e01ec89d57f"><section data-background-color="#d7cde5" data-background-image="2019-container-future/7900634d1a821fe1718dd894b47e93b9.jpg" data-background-opacity="0.15" data-id="91ca46963f678e3d4358bfff12d2868b"><div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 50px; top: 47px;" data-block-id="f9076dd3547e5053a703b14d489b5b3a"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h2>🚚 Distribution 🚚</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 849px; left: 80px; top: 203px;" data-block-id="059c2f279090f5cf99a16c013fd7faae"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 140%;" data-fragment-index="0">
+<p>OCI distribution spec is underway (formerly Docker Registry API v2)</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 769px; left: 120px; top: 269px;" data-block-id="b50f79bfae24c72fe78c105362e5bcc4"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; font-size: 140%;" data-fragment-index="1">
+<p>Consolidate all of our registry stories (all eyes on Quay 👀)</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 160px; top: 332px;" data-block-id="7153fa16f0675929a9cba3d2c12d79fa"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; font-size: 140%;" data-fragment-index="2">
+<p>signing has more options now</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 200px; top: 390px;" data-block-id="940c69bf8d7ef58d7ba7223855276e35"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; font-size: 140%;" data-fragment-index="2">
+<p>Source code of the container image</p>
+</div></div></section><section data-background-color="#d7cde5" data-background-image="2019-container-future/7900634d1a821fe1718dd894b47e93b9.jpg" data-background-opacity="0.15" data-id="5cc0573b771cd6e051ca14e9766d5032">
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 80px; top: 70px;" data-block-id="67aa8a6390cccf903db3cdd530eb1672"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<h2>Project Quay</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 591px; left: 105px; top: 190px;" data-block-id="fce559bd65e330579453d8026cae05f0"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; font-size: 140%;">
+<ul>
+	<li>Open sourced as of November 2019</li>
+	<li><a href="https://www.projectquay.io/" target="_blank">projectquay.io</a></li>
+	<li>Integration tests will benefit the ecosystem for registry conformance</li>
+</ul>
+</div></div></section><section data-background-color="#d7cde5" data-background-image="2019-container-future/7900634d1a821fe1718dd894b47e93b9.jpg" data-background-opacity="0.15" data-id="da726531c9f80d3f46524a9156e34a19">
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 80px; top: 70px;" data-block-id="df9a89b11c0bfb7fa9e47e60c92552fa"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h2>source code image</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 814px; left: 110px; top: 195px;" data-block-id="8696e64316b6bea41e677c509284b0cb"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<ul>
+	<li><span style="font-size:1.4em">part of "container first" builds</span></li>
+	<li><span style="font-size:1.4em">fundamental shift in Red Hat's focus on RPMs</span></li>
+	<li><span style="font-size:1.4em">drastic audit improvement of "what's built into this container?"</span></li>
+	<li><span style="font-size:1.4em">Significant like ftp.redhat.com</span></li>
+</ul>
+</div></div></section></section><section data-background-color="#e1efba" data-background-image="2019-container-future/7900634d1a821fe1718dd894b47e93b9.jpg" data-background-opacity="0.15" data-id="798dc9d4923b146f847520e1a4f3a88f"><div class="sl-block" data-block-type="text" style="height: auto; width: 704px; left: 48px; top: 47px;" data-block-id="70a98b95e8a30c30d1cb7d95b75aeb1a"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<h2>🔦Lights; 🎥Camera; 🕺Action!</h2>
+</div></div>
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 775px; left: 131px; top: 203px;" data-block-id="acb43a783ecbfbc7385e9a41865a5e50"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; font-size: 140%;" dir="ui">
+<p>`podman generate` and `podman play` (for system and k8s)</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 702px; left: 186px; top: 290px;" data-block-id="f6f644b2aa61e0b73eb99ab2f6c307eb"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; font-size: 140%;">
+<p>Try out Fedora 31 (which defaults to cgroups-v2-only)</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 656px; left: 186px; top: 368px;" data-block-id="97824f7ce3c85ee7041580afb7943ec7"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; font-size: 140%;">
+<p>I want to hear your software audit requirements!</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 743px; left: 145px; top: 455px;" data-block-id="1ac56e1bb7004fa972bed54e3ddfb6a9"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; font-size: 140%;">
+<p>get clarity on the nuance of non-root container requests</p>
+</div></div></section><section data-background-color="#94140a" data-id="b1e7b9c470236985821d7168ab32c562">
+
+
+
+
+
+<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 960px; height: 540px; left: 0px; top: 80px;" data-block-id="026f46c65fc46512b2430bbf0d18312f"><div class="sl-block-content" style="z-index: 11;"><img style="" data-natural-width="960" data-natural-height="540" data-lazy-loaded="" data-src="2019-container-future/9212f69c3917f08c02d7ff20d00e7051.svg"></div></div></section><section class="in-3d-appear" data-background-color="#b21a0f" data-background-image="2019-container-future/60672f0849c5b758b11dc0905dc42c02.svg" data-id="ce8f70c906e2ef277bb57a7f646d4913">    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="position:relative !important; width: 880px; height: 320px; margin-left:40px; ">
+    <svg xmlns="http://www.w3.org/2000/svg" class="closing-logo logotype" viewbox="0 0 613 145" height="170" width="500" style="position:absolute; top:190px; bottom: 0%; height: 50%; width: 50%; left:0: right:0;"><path class="logotext" style="fill:#fff;" d="M579.74,92.8c0,11.89,7.15,17.67,20.19,17.67a52.11,52.11,0,0,0,11.89-1.68V95a24.84,24.84,0,0,1-7.68,1.16c-5.37,0-7.36-1.68-7.36-6.73V68.3h15.56V54.1H596.78v-18l-17,3.68V54.1H568.49V68.3h11.25Zm-53,.32c0-3.68,3.69-5.47,9.26-5.47a43.12,43.12,0,0,1,10.1,1.26v7.15a21.51,21.51,0,0,1-10.63,2.63c-5.46,0-8.73-2.1-8.73-5.57m5.2,17.56c6,0,10.84-1.26,15.36-4.31v3.37h16.82V74.08c0-13.56-9.14-21-24.39-21-8.52,0-16.94,2-26,6.1l6.1,12.52c6.52-2.74,12-4.42,16.83-4.42,7,0,10.62,2.73,10.62,8.31v2.73a49.53,49.53,0,0,0-12.62-1.58c-14.31,0-22.93,6-22.93,16.73,0,9.78,7.78,17.24,20.19,17.24m-92.44-.94h18.09V80.92h30.29v28.82H506V36.12H487.93V64.41H457.64V36.12H439.55ZM370.62,81.87c0-8,6.31-14.1,14.62-14.1A17.22,17.22,0,0,1,397,72.09V91.54A16.36,16.36,0,0,1,385.24,96c-8.2,0-14.62-6.1-14.62-14.09m26.61,27.87h16.83V32.44l-17,3.68V57.05a28.3,28.3,0,0,0-14.2-3.68c-16.19,0-28.92,12.51-28.92,28.5a28.25,28.25,0,0,0,28.4,28.6,25.12,25.12,0,0,0,14.93-4.83ZM320,67c5.36,0,9.88,3.47,11.67,8.83H308.47C310.15,70.3,314.36,67,320,67M291.33,82c0,16.2,13.25,28.82,30.28,28.82,9.36,0,16.2-2.53,23.25-8.42l-11.26-10c-2.63,2.74-6.52,4.21-11.14,4.21a14.39,14.39,0,0,1-13.68-8.83h39.65V83.55c0-17.67-11.88-30.39-28.08-30.39a28.57,28.57,0,0,0-29,28.81M262,51.58c6,0,9.36,3.78,9.36,8.31S268,68.2,262,68.2H244.11V51.58Zm-36,58.16h18.09V82.92h13.77l13.89,26.82H292l-16.2-29.45a22.27,22.27,0,0,0,13.88-20.72c0-13.25-10.41-23.45-26-23.45H226Z"></path></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" class="closing-logo icon" viewbox="0 0 613 145" height="170" width="500" style="position:absolute; top:190px;width: 50%;  bottom: 0%; height: 50%; left:0: right:0;"><path class="logohat" style="fill:#fff;" d="M127.47,83.49c12.51,0,30.61-2.58,30.61-17.46a14,14,0,0,0-.31-3.42l-7.45-32.36c-1.72-7.12-3.23-10.35-15.73-16.6C124.89,8.69,103.76.5,97.51.5,91.69.5,90,8,83.06,8c-6.68,0-11.64-5.6-17.89-5.6-6,0-9.91,4.09-12.93,12.5,0,0-8.41,23.72-9.49,27.16A6.43,6.43,0,0,0,42.53,44c0,9.22,36.3,39.45,84.94,39.45M160,72.07c1.73,8.19,1.73,9.05,1.73,10.13,0,14-15.74,21.77-36.43,21.77C78.54,104,37.58,76.6,37.58,58.49a18.45,18.45,0,0,1,1.51-7.33C22.27,52,.5,55,.5,74.22c0,31.48,74.59,70.28,133.65,70.28,45.28,0,56.7-20.48,56.7-36.65,0-12.72-11-27.16-30.83-35.78"></path></svg>
+</div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 403px; left: 557px; top: 251px;" data-block-id="2b66aea4436b7f36269d70c4e5754cd7"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; text-align: left; font-size: 88%;">
+<h1>THANK YOU!</h1>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="width: 4px; height: 214px; left: 511px; top: 171px;" data-block-id="38d553c31ff8ae6cf6569ccd9387dfb4"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(255, 255, 255)" data-shape-stretch="true" style="z-index: 16;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 4 214"><rect width="4" height="214" rx="0" ry="0" class="shape-element" fill="rgb(255, 255, 255)"></rect></svg></div></div>
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="snippet" style="width: 375px; height: 90px; left: 326px; top: 433px;" data-block-id="da74bc7720f613eb913f3d43713e1fc2"><div class="sl-block-content" data-has-custom-html="" style="z-index: 10;">
+<p style="text-align: center;">Vincent Batts</p>
+
+<p style="text-align: center;">vbatts@</p>
+</div></div>
+
+</section>
+			</div>
+		</div>
+
+		<script>
+			var SLConfig = {"deck": {"id":1649514,"slug":"2019-container-future","title":"Future of containers","description":"For Dallas mini-summit, 2019-12-05","width":960,"height":700,"margin":0.05,"visibility":"self","published_at":null,"sanitize_messages":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/c96603c320f3a36bda6fbb01059b865c/thumb.jpg?1573842995","view_count":4,"user":{"id":352550,"username":"vbatts","name":"Vincent Batts","description":"","thumbnail_url":"https://www.gravatar.com/avatar/a76bbb02d3ce311820f53ef484c0f8bf?s=140\u0026d=https%3A%2F%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png","paid":true,"pro":true,"lite":false,"team_id":32,"settings":{"id":185974,"present_controls":true,"present_upsizing":true,"present_pointer":false,"present_notes":true,"default_deck_tag_id":null},"enterprise":true,"membership":{"role":"member","manager":false,"activated":true}},"background_transition":"none","transition":"none","theme_id":176,"theme_font":"overpass2","theme_color":"no-color","auto_slide_interval":0,"comments_enabled":true,"forking_enabled":false,"rolling_links":false,"center":false,"shuffle":false,"should_loop":false,"share_notes":false,"slide_number":false,"slide_count":18,"rtl":false,"version":2,"collaborative":false,"deck_user_editor_limit":null,"data_updated_at":1575557421701,"font_typekit":null,"font_google":null,"time_limit":null,"upsizing_enabled":true,"notes":{}}};
+
+				SLConfig.theme = {"id":176,"created_at":"2014-05-27T12:38:16.183Z","updated_at":"2019-10-17T00:32:59.630Z","name":"Red Hat Corporate (Archived)","thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/66755080be2b0c8c0146bfa70069ef16/thumb.jpg?1571272377","sanitize_messages":null,"slide_template_ids":[28642,36442,26765,26762,56704,16857,16856,16853,16855,16854,16852,16863,16862,16861,16860,16859,16858,56721,185268,185425],"font_typekit":"","font_google":"","width":960,"height":700};
+
+			// Use local fonts
+			SLConfig.fonts_url = 'lib/fonts/';
+		</script>
+
+		<script src="lib/reveal.min.js"></script>
+		<script src="lib/offline.js"></script>
+
+		<!-- Initialize the presentation -->
+		<script>
+			Reveal.initialize({
+				width: 960,
+				height: 700,
+				margin: 0.05,
+				
+
+				hash: true,
+				controls: true,
+				progress: true,
+				mouseWheel: false,
+				showNotes: false,
+				slideNumber: false,
+
+				autoSlide: 0,
+				autoSlideStoppable: true,
+
+				autoAnimateMatcher: SL.deck.AutoAnimate.matcher,
+
+				center: false,
+				shuffle: false,
+				loop: false,
+				rtl: false,
+
+				transition: "none",
+				backgroundTransition: "none",
+
+				highlight: {
+					escapeHTML: false
+				},
+
+				dependencies: [
+					{ src: 'lib/reveal-plugins/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'lib/reveal-plugins/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'lib/reveal-plugins/highlight/highlight.js' },
+					{ src: 'lib/reveal-plugins/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'lib/reveal-plugins/zoom/zoom.js', async: true }
+				]
+			});
+		</script>
+
+		
+  <script id="theme-js-output" type="text/javascript">var themeHTMLOutput = document.getElementById('theme-html-output');
+if( themeHTMLOutput ) {
+    themeHTMLOutput.innerHTML = '<link  rel="stylesheet" href="https://overpassmonotest-30e2.kxcdn.com/overpass-mono.css" />';
+}
+
+// (function() {
+// 
+//   var slidesInitInterval = setInterval( function() {
+//     if( window.SL && window.SL.view ) {
+//       // If we're in the editor, wait for the Blocks controller
+//       // to be initialized
+//       if( SL.editor ) {
+// 
+//         if( SL.editor.controllers && SL.editor.controllers.Blocks && SL.editor.controllers.Blocks.textSaved ) {
+//           SL.editor.controllers.Blocks.textSaved.add( function( element ) {
+//             var html = element.html();
+//             html = html.replace( /(@RedHat | @redhat)/g,                 '@redhat' );
+//             html = html.replace( 'redhat.com',                 'redhat.com' );
+//             html = html.replace( /(Red Hat|red hat|RedHat|Red hat|Redhat|redHat|red Hat)/g,  '<span class="name">Red Hat</span>' );
+//             html = html.replace( /( redhat |redhat )/g,  ' <span class="name">Red Hat</span> ' );
+//             html = html.replace( 'REDHAT',                    '<span class="name">RED HAT</span>' );
+//             html = html.replace( 'redhat<',                    '<span class="name">Red Hat</span><' );
+//             html = html.replace( 'openshift',                 '<span class="name">OpenShift</span>' );
+//             html = html.replace( '<span class="name"><span class="name">Red Hat</span></span>',                    '<span class="name">Red Hat</span>' );
+//             html = html.replace( 'redhat.com',                 'redhat.com' );
+//             html = html.replace( 'REDHAT.COM',                 'REDHAT.COM' );
+//             html = html.replace( '@redhat',                 '@redhat' );
+//             html = html.replace( /(@RedHatNews | @redhatnews)/g,                 '@RedHatNews' );
+//             html = html.replace( /(@RedHat | @redhat)/g,                 '@RedHatInc' );
+//             html = html.replace( /(RHEL-OSP|RHELOSP|Red Hat Enterprise Linux OpenStack Platform)/g,                 'Red Hat OpenStack Platform' );
+//             html = html.replace( /(openstack |openstack|open stack|openStack|Openstack)/g,                 'OpenStack' );
+//             html = html.replace( 'openstack',                    'OpenStack' );
+//             html = html.replace( 'openstack<',                    'OpenStack<' );
+// 
+//             element.html( html );
+//           } );
+// 
+//           clearInterval( slidesInitInterval );
+//         }
+// 
+//       }
+//       else {
+//         clearInterval( slidesInitInterval );
+//       }
+//     }
+//   }, 500 );
+// 
+// })();
+
+
+
+// piwik script
+var _paq = _paq || [];
+_paq.push(["trackPageView"]);
+_paq.push(["enableLinkTracking"]);
+
+/* Disabled Apr 25 since the script was unreachable
+ * and caused exports to fail. -hakim@slides.com
+(function() {
+    var u = (("https:" == document.location.protocol) ? "https" : "http") +
+    "://engstats.redhat.com/piwik/";
+    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+    _paq.push(["setSiteId", "8"]);
+    var d=document, g=d.createElement("script"),
+    s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+})();
+*/
+
+
+ 
+function sliceString(selector) {
+    var elements = document.getElementsByClassName(selector);
+
+ 
+    for (var h=0; h<elements.length; h++){
+      var string = elements[h].innerText,
+          total = string.length,
+          div = '';
+
+// futile attempt to clean space
+var string = elements[h].innerText.trim();
+     
+      for (var i=0; i<total;  i++) {
+        var letter = string.charAt(i);
+        div+= '<span class="'+letter+'">'+letter+'</span>';
+      }
+      elements[h].innerHTML = div;
+    }        
+}
+sliceString('lettering');
+sliceString('lettering'); //no rogue spaces when fired twice for some reason
+
+
+
+// function sliceString(selector) {
+//    if (!document.querySelector) return;
+//    var string = document.querySelector(selector).innerText,
+//        total = string.length,
+//        html = '';
+//    for (var i=0; i<total; i++) {
+//        var letter = string.charAt(i);
+//        html+= '<span class="'+letter+'">'+letter+'</span>';
+//    }
+//    document.querySelector(selector).innerHTML = html;
+//}
+//sliceString('.lettering');</script>
+
+	</body>
+</html>
