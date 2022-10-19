@@ -26,6 +26,11 @@ _This is a playlist of all the videos I could find of myself online. Most are of
 This is not a comprehensive list, and I will update it periodically.
 It is a compilation of most of the conferences, camps, and workshops in which I have given talks and/or led.
 
+### 2020
+
+* September
+  * __DevConf US__ - Fine golden thread (keynote) [video](https://www.youtube.com/watch?v=21Vj4zExOgg)
+
 ### 2018
 
 * October
