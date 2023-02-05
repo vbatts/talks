@@ -31,10 +31,15 @@ It is a compilation of most of the conferences, camps, and workshops in which I 
 * October
   * __KubeCon NA__ - [Unsung Hero of Cloud Native: History of Container Linux](2022/10/KubeCon_NA-Unsung_Hero) ([video](https://www.youtube.com/watch?v=BhMExNw9904))
 
+### 2021
+
+* May
+  * __KubeCon EU__ - Panel: Linux in the Kubernetes Era: Does The OS Still Matter? (Tasha Drew, VMware; Kiko Reis, Canonical; Darren Shepherd, Rancher Labs; Dusty Mabe, Red Hat; & Vincent Batts, Kinvolk) ([video](https://www.youtube.com/watch?v=BDzLA8ybE30))
+
 ### 2020
 
 * September
-  * __DevConf US__ - Fine golden thread (keynote) [video](https://www.youtube.com/watch?v=21Vj4zExOgg)
+  * __DevConf US__ - Fine golden thread (keynote) ([video](https://www.youtube.com/watch?v=21Vj4zExOgg))
 
 ### 2019
 
@@ -52,11 +57,11 @@ It is a compilation of most of the conferences, camps, and workshops in which I 
   * __Edinburgh Container MeetUp__ - Container Runtimes: Draw Some Lines
   * __OpenSourceSummit EU (Edinburgh)__ - Improve the Human Vector with Emoji
 * September
-  * __all-systems-go.io (Berlin)__ - Container RUntimes: Draw Some Lines (https://media.ccc.de/v/ASG2018-186-container_runtimes_draw_some_lines) (https://youtu.be/0JO40VDE9CQ)
+  * __all-systems-go.io (Berlin)__ - Container RUntimes: Draw Some Lines ([slides](https://media.ccc.de/v/ASG2018-186-container_runtimes_draw_some_lines), [video](https://youtu.be/0JO40VDE9CQ))
   * __all-systems-go.io (Berlin)__ - passive filesystem validationg
 * January
   * __DevConf CZ__ - Emojisum lightening talk
-  * __DevConf CZ__ - What's New in Golang? (https://www.youtube.com/watch?v=mmljYnZl8X4)
+  * __DevConf CZ__ - What's New in Golang? ([video](https://www.youtube.com/watch?v=mmljYnZl8X4))
   * __Red Hat Summit__ - Provenance and Deployment Policy (https://next.redhat.com/2018/05/03/introducing-the-red-hat-summit-office-of-the-cto-sessions/)
 
 ### 2017
@@ -86,31 +91,31 @@ It is a compilation of most of the conferences, camps, and workshops in which I 
   * __ContainerCon EU (Berlin)__ - OCI F2F (https://groups.google.com/a/opencontainers.org/d/msg/dev/BHYX5lv5h3E/xPe66sahBgAJ)
 * September
   * Let's Make Containers Boring
-  * __Systemd.conf (Berlin)__ - Whats Next for Containers? (https://www.youtube.com/watch?v=F1wpyEsfejQ)
+  * __Systemd.conf (Berlin)__ - Whats Next for Containers? ([video](https://www.youtube.com/watch?v=F1wpyEsfejQ))
 * August
   * __ContainerCon NA (Toronto)__ - Common Container Standards: Past, Present, and Future
   * __ContainerCon NA (Toronto)__ - Reproduce and Verify Filesystems
 * July
-  * __CoreOS Fest DE (Berlin)__ - Common Container Standards - Past, Present and Future (https://www.youtube.com/watch?v=cL9wuKCCo7M)
+  * __CoreOS Fest DE (Berlin)__ - Common Container Standards - Past, Present and Future ([video](https://www.youtube.com/watch?v=cL9wuKCCo7M))
 * June
   * __ContainerCon JP (Tokyo)__ - Common container standards
   * __ContainerCon JP (Tokyo)__ - Reproduce and verify filesystems
-  * __DevNation__ - Containers: under the hood (https://www.youtube.com/watch?v=bG2WAHuVe_g)
+  * __DevNation__ - Containers: under the hood ([video](https://www.youtube.com/watch?v=bG2WAHuVe_g))
   * __Red Hat Summit__ - Containers, not black boxes (w/ Dwalsh)
 * May
-  * __CoreOS Fest DE (Berlin)__ - Containers: Past, present, and future (https://www.youtube.com/watch?v=cL9wuKCCo7M)
+  * __CoreOS Fest DE (Berlin)__ - Containers: Past, present, and future ([video](https://www.youtube.com/watch?v=cL9wuKCCo7M))
   * __Notre Dame__ - What is it we want in Containers Anyways? (https://daspos.crc.nd.edu/index.php/workshops/container-strategies-for-data-software-preservation-that-promote-open-science)
-  * __OSCON__ - Is your App ready for Containers? https://blog.openshift.com/oscon-2016/
+  * __OSCON__ - Is your App ready for Containers? ([OpenShift blog](https://blog.openshift.com/oscon-2016/), [interview with NewStack](https://www.youtube.com/watch?v=jy1y1xr5Wlk))
 
 ### 2015
 
 * November
-  * __Systemd.conf (Berlin)__ - What is it we want in containers anyways? (https://www.youtube.com/watch?v=wpFrkq5XNFM)
-  * __DockerCon Barcelona__ - What is it we want in Containers Anyways? (https://rhelblog.redhat.com/2015/11/11 must-see-vincent-batts-next-week-at-dockercon-europe/#more-1314)
+  * __Systemd.conf (Berlin)__ - What is it we want in containers anyways? ([video](https://www.youtube.com/watch?v=wpFrkq5XNFM))
+  * __DockerCon Barcelona__ - What is it we want in Containers Anyways? ([RH Blog link](https://www.redhat.com/en/blog/must-see-vincent-batts-next-week-dockercon-europe))
 * June
-  * __Devnation__ - Golang - the good, the bad, the ugly (https://youtu.be/cMYhGNofHA4)
+  * __Devnation__ - Golang - the good, the bad, the ugly ([video](https://youtu.be/cMYhGNofHA4))
   * __DockerCon SF__ - Contribute and Collaborate 101 (https://dockercon2015.sched.com/event/39SQ/contribute-and-collaborate-101) (https://www.youtube.com/watch?v=g8KZ2ZhuKGY)
-  * __DockerCon SF__ - Cartoon Video during the keynote (https://www.youtube.com/watch?v=cRczhEvSH2A)
+  * __DockerCon SF__ - Cartoon Video during the keynote ([video](https://www.youtube.com/watch?v=cRczhEvSH2A))
   * __CoreOS Fest__ - AppC Panel (https://www.youtube.com/watch?v=8Ul607mRTnY)
 * February
   * __Centos Dojo Brussells__ - Atomic, Containers
@@ -134,14 +139,16 @@ It is a compilation of most of the conferences, camps, and workshops in which I 
 ### 2013
 
 * September
-  * Golang learning lunch (https://www.youtube.com/watch?v=pRb1zpCjoR8)
+  * Golang learning lunch ([video](https://www.youtube.com/watch?v=pRb1zpCjoR8))
 * August
-  * __Flock__ - Golang Workshop: "Get Go-ing" (https://www.youtube.com/watch?v=iXMQTJFaCmw)
+  * __Flock__ - Golang Workshop: "Get Go-ing" ([video](https://www.youtube.com/watch?v=iXMQTJFaCmw))
 
 ### 2011
 
+* March
+  * _SouthEast LinuxFest__ - Slackware Demystified ([video](https://www.youtube.com/watch?v=Ze9oHzrrnJk))
 * April
-  * __Camp KDE__ - Slackware: Quickly and Easily Manage Your KDE Hacking (https://www.youtube.com/watch?v=Qs7vR3POHeo)
+  * __Camp KDE__ - Slackware: Quickly and Easily Manage Your KDE Hacking ([video](https://www.youtube.com/watch?v=Qs7vR3POHeo), [interview](https://www.youtube.com/watch?v=YIpUmPul1i4))
 
 ### 2010
 
