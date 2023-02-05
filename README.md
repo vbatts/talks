@@ -29,7 +29,7 @@ It is a compilation of most of the conferences, camps, and workshops in which I 
 ### 2022
 
 * October
-  * __KubeCon NA__ - Unsung Hero of Cloud Native: History of Container Linux
+  * __KubeCon NA__ - [Unsung Hero of Cloud Native: History of Container Linux](2022/10/KubeCon_NA-Unsung_Hero) ([video](https://www.youtube.com/watch?v=BhMExNw9904))
 
 ### 2020
 
