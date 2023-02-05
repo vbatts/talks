@@ -36,6 +36,16 @@ It is a compilation of most of the conferences, camps, and workshops in which I 
 * September
   * __DevConf US__ - Fine golden thread (keynote) [video](https://www.youtube.com/watch?v=21Vj4zExOgg)
 
+### 2019
+
+* April
+  * __RH Summit__ - Knative&Tekton Build&Pipelines
+* August
+  * __DevConf IN__ - [Open: it's worth it (keynote)](2019/08/devconf.in-open_its_worth_it)
+  * __DevConf IN__ - [Container Runtimes](2019/08/devconf.in-container_runtimes)
+* November
+  * __RH Emerging Technologies Summit__ - Future of Containers
+
 ### 2018
 
 * October
