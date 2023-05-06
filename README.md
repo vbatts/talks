@@ -1,18 +1,14 @@
-# ___vbatts' talks, mentions, and interviews___
-
-This list is an incomplete collection.
+# vbatts' talks and interviews
 
 ---
 
-## __Playlist__
+## Playlist
 
-_This is a playlist of all the videos I could find of myself online. Most are of my talks, but a few are interviews._
-
-* [YouTube Playlist](https://www.youtube.com/playlist?list=PLK-mN-_ZR6SEI2gRX3J-7mmpVYR84XS5J)
+* [YouTube Playlist](https://www.youtube.com/playlist?list=PLK-mN-_ZR6SEI2gRX3J-7mmpVYR84XS5J) - Most are of talks, but a few are interviews.
 
 ---
 
-## __Interviews__
+## Interviews
 
 * 2018 Command Line Heros: Ready to Commit - https://www.redhat.com/en/command-line-heroes/season-2/ready-to-commit
 * 2017 Interview w/ NewStack @ SCALE - https://player.fm/series/the-new-stack-scale/show-12-has-the-go-language-become-cloud-native
@@ -21,7 +17,7 @@ _This is a playlist of all the videos I could find of myself online. Most are of
 
 ---
 
-## __Talks__
+## Talks
 
 This is not a comprehensive list, and I will update it periodically.
 It is a compilation of most of the conferences, camps, and workshops in which I have given talks and/or led.
